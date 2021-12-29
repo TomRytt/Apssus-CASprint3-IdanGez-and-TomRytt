@@ -1,5 +1,34 @@
+import {noteService} from '../apps/keep/services/note.service.js';
+import {NoteList} from '../apps/keep/cmps/note-list.jsx';
 export class NotesApp extends React.Component {
+
+	state ={
+		notes: [],
+		filterBy: null,
+	};
+
+	componentDidMount() {
+		this.loadNotes();
+	}
+
+	loadNotes = () => {
+		const notes = noteService.query()
+		this.setState({notes})
+	}
+	
+	// onSetFilter = (filterBy) => {
+	// 	this.setState({filterBy}, this.loadBooks)
+	// }
+
 	render() {
-		return <h1>NotesApp</h1>;
+		const {notes} = this.state;
+		return (
+			<section className="note=App">
+			<h1>NotesApp</h1>
+				<NoteList notes ={notes}/>
+
+			</section>
+		)
+		
 	}
 }
