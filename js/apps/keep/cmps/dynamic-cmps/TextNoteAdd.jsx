@@ -1,4 +1,4 @@
-import noteService from '../../services/note.service.js'
+import {noteService} from '../../services/note.service.js'
 export class TextNoteAdd extends React.Component {
 
     state = {
@@ -15,7 +15,7 @@ export class TextNoteAdd extends React.Component {
         ev.preventDefault();
         const input = this.state;
         console.log(input);
-        noteService.addTextNote(input);
+        noteService.addTxtNote(input);
         this.setState({ input: '' });
         // this.props.loadNotes();
     };
