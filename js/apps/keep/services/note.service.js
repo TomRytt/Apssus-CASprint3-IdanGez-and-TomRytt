@@ -51,16 +51,6 @@ return {
 
 
 
-
-
-
-
-
-
-
-
-
-
 function _saveNotesToStorage(notes) {
     storageService.saveToStorage(STORAGE_KEY, notes);
   }
