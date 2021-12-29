@@ -1,14 +1,14 @@
 // Pages
-import {MailApp} from './js/pages/MailApp.jsx';
-import {BookApp} from './js/pages/BookApp.jsx';
-import {NotesApp} from './js/pages/NotesApp.jsx';
-import {Home} from './js/pages/Home.jsx';
-import {About} from './js/pages/About.jsx';
+import {MailApp} from './pages/MailApp.jsx';
+import {BookApp} from './pages/BookApp.jsx';
+import {NotesApp} from './pages/NotesApp.jsx';
+import {Home} from './pages/Home.jsx';
+import {About} from './pages/About.jsx';
 
 // Cmps
-import {UserMsg} from './js/cmps/UserMsg.jsx';
-import {AppHeader} from './js/cmps/AppHeader.jsx';
-import {Footer} from './js/cmps/Footer.jsx';
+import {UserMsg} from './cmps/UserMsg.jsx';
+import {AppHeader} from './cmps/AppHeader.jsx';
+import {Footer} from './cmps/Footer.jsx';
 
 // ReactDom
 const Router = ReactRouterDOM.HashRouter;

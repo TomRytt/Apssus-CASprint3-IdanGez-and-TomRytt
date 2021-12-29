@@ -1,20 +1,103 @@
-
 /* HELPERS */
-
-.main-layout {
-
-}
-
-.flex {
-    display: flex;
-}
-
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  margin: 0;
-  padding: 0;
+	margin: 0;
+	padding: 0;
 }
+
+/* Modal settings- Coding Academy */
+.modal {
+	margin: auto;
+	text-align: center;
+	background-color: lightseagreen;
+	display: none;
+	position: absolute;
+	top: 550px;
+	right: 42%;
+	padding: 5px;
+	width: 300px;
+}
+
+/* Helpers */
+
+/* General */
+
+* {
+	box-sizing: border-box;
+}
+
+.body {
+	margin: 0;
+}
+
+/* Flex */
+
+.flex {
+	display: flex;
+}
+
+.flex-column {
+	flex-direction: column;
+}
+
+.justify-center {
+	justify-content: center;
+}
+
+.justify-space-between {
+	justify-content: space-between;
+}
+
+.justify-space-around {
+	justify-content: space-around;
+}
+.align-items-center {
+	align-items: center;
+}
+
+.align-self-center {
+	align-self: center;
+}
+
+.flex-gap {
+	gap: 50px;
+}
+
+.align-baseline {
+	align-items: baseline;
+}
+
+/* Modal */
+
+/* .open {
+
+} */
+
+/* Buttons */
+
+.pill-button {
+	border-radius: 2em;
+}
+
+/* List */
+
+.clean-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+/* Links */
+
+.clean-link {
+	color: inherit;
+	text-decoration: none;
+}
+/* 
+.active {
+
+} */
