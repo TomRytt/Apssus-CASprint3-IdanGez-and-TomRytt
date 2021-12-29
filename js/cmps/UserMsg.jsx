@@ -30,7 +30,7 @@ export class UserMsg extends React.Component {
 	};
 
 	componentWillUnmount() {
-		console.log('componentWillUnmount');
+		// console.log('componentWillUnmount');
 		this.removeEventBus();
 	}
 
