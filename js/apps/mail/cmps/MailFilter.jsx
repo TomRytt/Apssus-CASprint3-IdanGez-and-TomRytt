@@ -31,3 +31,6 @@ export class MailFilter extends React.Component {
 		return <h1>MailFilter</h1>;
 	}
 }
+
+//  Filter emails: by search, by read/unread
+//  Allow sorting the emails by date and by title

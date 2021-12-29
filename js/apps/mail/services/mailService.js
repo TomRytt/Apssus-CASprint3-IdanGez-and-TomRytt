@@ -7,19 +7,9 @@ export const mailService = {
 	getLoggedinUser,
 	addMail,
 	getMailById,
+	getNewMailId,
+	deleteMail,
 };
-
-// emailService
-// • Model - start with a basic model of emails:
-// const email = {
-// id: 'e101',
-// subject: 'Miss you!',
-// body: 'Would love to catch up sometimes',
-// isRead: false,
-// sentAt : 1551133930594,
-// to: 'momo@momo.com'
-// }
-// Also, in your email service have a basic user:
 
 const KEY = 'mailsDB';
 
@@ -35,6 +25,7 @@ function getLoggedinUser() {
 function query(filterBy = null) {
 	let mails = _loadMailsFromStorage();
 	if (!mails || !mails.length) {
+		console.log('from json');
 		mails = [
 			{
 				id: 'e101',
@@ -46,6 +37,7 @@ function query(filterBy = null) {
 				sentAt: 1551133930594,
 				to: 'momo@momo.com',
 				isOpen: false,
+				isDeleted: false,
 			},
 			{
 				id: 'e102',
@@ -57,6 +49,7 @@ function query(filterBy = null) {
 				sentAt: 1551133930594,
 				to: 'arealemailaddress@gmail.com',
 				isOpen: false,
+				isDeleted: false,
 			},
 			{
 				id: 'e103',
@@ -68,6 +61,7 @@ function query(filterBy = null) {
 				sentAt: 1551133930594,
 				to: 'user@appsus.com',
 				isOpen: false,
+				isDeleted: false,
 			},
 			{
 				id: 'e104',
@@ -79,6 +73,7 @@ function query(filterBy = null) {
 				sentAt: 1551133930594,
 				to: 'fakeemail@appsus.com',
 				isOpen: false,
+				isDeleted: false,
 			},
 			{
 				id: 'e105',
@@ -90,6 +85,7 @@ function query(filterBy = null) {
 				sentAt: 1551133930594,
 				to: 'user@appsus.com',
 				isOpen: false,
+				isDeleted: false,
 			},
 		];
 		_saveMailsToStorage(mails);
@@ -101,9 +97,41 @@ function query(filterBy = null) {
 
 // Funcs used by other cmps
 
-function addMail(mail) {}
+function addMail(mail) {
+	const newMail = {
+		id: mail.id,
+		by: mail.by,
+		from: mail.from,
+		subject: mail.subject,
+		body: mail.body,
+		isRead: mail.isRead,
+		sentAt: mail.sentAt,
+		to: mail.to,
+		isOpen: mail.isOpen,
+	};
+	const mails = _loadMailsFromStorage();
+	mails.unshift(newMail);
+	_saveMailsToStorage(mails);
+	return Promise.resolve();
+}
+
+function deleteMail(mailId) {
+	const mails = _loadMailsFromStorage();
+	let mail = mails.findIndex((mail) => {
+		return mailId === mail.id;
+	});
+	console.log(mail);
+	mails.splice(mail, 1);
+	_saveMailsToStorage(mails);
+}
 
 function getMailById(mailId) {}
+
+function getNewMailId() {
+	const mails = _loadMailsFromStorage();
+	const newMailId = `e10${+mails.length + 1}`;
+	return newMailId;
+}
 
 // Private Funcs
 
