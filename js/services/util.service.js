@@ -1,6 +1,6 @@
 export const utilService = {
 	makeId,
-	makeLorem100,
+	makeLorem,
 	getRandomIntInclusive,
 	currencySymbolConverter,
 	makePrice,
@@ -19,7 +19,7 @@ function makeId(length = 6) {
 	return txt;
 }
 
-function makeLorem100(size = 100) {
+function makeLorem(size = 100) {
 	var words = [
 		'The sky',
 		'above',
