@@ -13,6 +13,14 @@
 
 /* APPS  */
 
+/* Mail */
+
+/* Mail Pages */
+
+/* Mail CMPS */
+@import '../css/apps/mail/cmps/mail-preview.css';
+@import '../css/apps/mail/cmps/mail-compose.css';
+
 /* KEEP */
 
 @import './apps/keep/note-preview.css';

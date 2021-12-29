@@ -41,7 +41,7 @@ export class LongText extends React.Component {
 				{this.state.text}
 				{this.props.text.length > 100 && (
 					<span className='more' onClick={this.showLongTxt}>
-						<span> </span>More...
+						<span> </span>...
 					</span>
 				)}
 			</p>

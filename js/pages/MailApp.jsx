@@ -12,6 +12,8 @@ import {MailFolderList} from '../apps/mail/cmps/MailFolderList.jsx';
 import {MailList} from '../apps/mail/cmps/MailList.jsx';
 // import {MailPreview} from '../apps/mail/cmps/MailPreview.jsx';
 
+const {Route} = ReactRouterDOM;
+
 export class MailApp extends React.Component {
 	state = {
 		mails: [],
@@ -44,6 +46,7 @@ export class MailApp extends React.Component {
 						onSetFilter={this.onSetFilter}
 					/>
 				}
+				<Route component={MailCompose} path='/mail/composemail' />
 				<MailList className='mail-list' mails={mailsToShow} />
 			</section>
 		);

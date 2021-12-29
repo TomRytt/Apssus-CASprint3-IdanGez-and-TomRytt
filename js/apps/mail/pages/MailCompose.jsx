@@ -1,5 +1,11 @@
+const {Link} = ReactRouterDOM;
 export class MailCompose extends React.Component {
 	render() {
-		return <h1>MailCompose</h1>;
+		return (
+			<div>
+				<Link className='compose-mail-container' to='/mail' />
+				<div className='compose-mail'>Mail Compose</div>
+			</div>
+		);
 	}
 }
