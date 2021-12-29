@@ -45,6 +45,7 @@ function query(filterBy = null) {
 				isRead: false,
 				sentAt: 1551133930594,
 				to: 'momo@momo.com',
+				isOpen: false,
 			},
 			{
 				id: 'e102',
@@ -55,6 +56,7 @@ function query(filterBy = null) {
 				isRead: true,
 				sentAt: 1551133930594,
 				to: 'arealemailaddress@gmail.com',
+				isOpen: false,
 			},
 			{
 				id: 'e103',
@@ -65,6 +67,7 @@ function query(filterBy = null) {
 				isRead: false,
 				sentAt: 1551133930594,
 				to: 'user@appsus.com',
+				isOpen: false,
 			},
 			{
 				id: 'e104',
@@ -75,6 +78,7 @@ function query(filterBy = null) {
 				isRead: true,
 				sentAt: 1551133930594,
 				to: 'fakeemail@appsus.com',
+				isOpen: false,
 			},
 			{
 				id: 'e105',
@@ -85,6 +89,7 @@ function query(filterBy = null) {
 				isRead: false,
 				sentAt: 1551133930594,
 				to: 'user@appsus.com',
+				isOpen: false,
 			},
 		];
 		_saveMailsToStorage(mails);
