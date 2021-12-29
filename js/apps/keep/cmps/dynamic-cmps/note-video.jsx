@@ -1,8 +1,10 @@
-export function VideoNote(note) {
-    console.log(note)
+export function VideoNote({ note }) {
     return (
         <div className="video-note">
-            Video Note
+
+            <iframe width="420" height="315"
+                src={note.info.url}>
+            </iframe>
         </div>
     )
 }

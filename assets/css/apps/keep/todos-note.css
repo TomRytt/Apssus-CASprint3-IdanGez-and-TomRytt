@@ -1,0 +1,11 @@
+.todos-note{
+    margin:5px 0;
+}
+
+.todo-note {
+    margin:5px 0;
+    font-size: 1.5rem;
+    max-width: 200px;
+    background-color: rgb(191, 191, 226);
+
+}
