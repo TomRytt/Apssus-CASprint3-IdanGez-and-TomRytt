@@ -1,16 +1,16 @@
 import {NotePreview} from './note-preview.jsx';
 
-// Add functions (as props) that would be rendered by notesApp
-export function NoteList({notes}) {
+export function NoteList({notes, loadNotes, onDeleteNote}) {
 	return (
 		<section className='note-list'>
 			{notes.map((note, idx) => (
-				<React.Fragment key={idx}>
-					<NotePreview note={note} />
-				</React.Fragment>
+				<NotePreview
+					key={idx}
+					loadNotes={loadNotes}
+					onDeleteNote={onDeleteNote}
+					note={note}
+				/>
 			))}
 		</section>
 	);
 }
-
-// key={note.id}

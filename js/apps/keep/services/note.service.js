@@ -2,11 +2,8 @@ import {storageService} from '../../../services/storage.service.js';
 import {utilService} from '../../../services/util.service.js';
 export const noteService = {
 	query,
-	// addTxtNote,
-	// addImgNote,
-	// addTodoNote,
 	addNewNote,
-	tester,
+	deleteNote,
 };
 
 const STORAGE_KEY = 'notesDB';
@@ -45,31 +42,21 @@ const gNotes = [
 	},
 	{
 		id: 'n105',
-		type: 'note-video',
+		type: 'note-txt',
 		isPinned: true,
-		info: {url: 'https://www.youtube.com/embed/o6SprGmHTy4'},
+		info: {txt: 'Fullstack Me Baby!'},
 	},
 ];
 
-function _createNotes() {
+function query() {
 	let notes = _loadNotesFromStorage();
 	if (!notes || !notes.length) {
 		notes = gNotes;
+		_saveNotesToStorage(notes);
 	}
-	_saveNotesToStorage(notes);
-}
-_createNotes();
-
-function query() {
-	const notes = _loadNotesFromStorage();
-	// console.log(notes)
 	// if(!filterBy) return Promise.resolve(notes);
 	// const filteredNotes = _get
-	return notes;
-}
-
-function tester() {
-	console.log('test');
+	return Promise.resolve(notes);
 }
 
 function addNewNote(input, type) {
@@ -128,7 +115,12 @@ function newTodoNote(input, type) {
 	};
 }
 
-// todos: texts.map(txt => ({txt, dontAt:null}))
+function deleteNote(noteId) {
+	let notes = _loadNotesFromStorage();
+	notes = notes.filter((note) => note.id !== noteId);
+	_saveNotesToStorage(notes);
+	return Promise.resolve();
+}
 
 function _saveNotesToStorage(notes) {
 	storageService.saveToStorage(STORAGE_KEY, notes);

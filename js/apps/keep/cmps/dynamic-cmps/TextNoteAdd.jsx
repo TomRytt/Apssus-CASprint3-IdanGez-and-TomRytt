@@ -1,9 +1,9 @@
-import {noteService} from '../../services/note.service.js'
+import { noteService } from '../../services/note.service.js'
 export class TextNoteAdd extends React.Component {
 
     state = {
         input: '',
-        type:'note-txt'
+        type: 'note-txt',
     }
 
     handleChange = ({ target }) => {
@@ -11,20 +11,19 @@ export class TextNoteAdd extends React.Component {
         this.setState((prevState) => ({ ...prevState, input: value }));
     };
 
-    onSubmit = (ev) => {
+    onSubmitNote = (ev) => {
         ev.preventDefault();
-        const {input, type} = this.state;        
-        noteService.addNewNote(input, type);
+        const { input, type } = this.state;
+        // console.log(input, type)
+        this.props.onAddNote(input, type)
         this.setState({ input: '' });
-        this.props.loadNotes();
     };
-
 
     render() {
         const { input } = this.state;
         return (
             <div>
-                <form onSubmit={this.onSubmit} action=''>
+                <form onSubmit={this.onSubmitNote} action=''>
                     <label htmlFor='add-text-note'>Add note:</label>
                     <input
                         type='text'

@@ -22,9 +22,9 @@ export class TodoNoteAdd extends React.Component {
     onSubmit = (ev) => {
         ev.preventDefault();
         const { todo, type } = this.state;
-        noteService.addNewNote(todo, type);
-        this.setState({ list: '', lable: '' });
-        this.props.loadNotes();
+        this.props.onAddNote(todo, type)
+        this.setState({ list: '', lable:'' });
+
     };
 
     render() {

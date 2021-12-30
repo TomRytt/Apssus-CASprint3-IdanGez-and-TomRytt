@@ -22,9 +22,9 @@ export class ImgNoteAdd extends React.Component {
     onSubmit = (ev) => {
         ev.preventDefault();
         const {image,type} = this.state;
-        noteService.addNewNote(image,type);
-        this.setState({ url: '', title:''});
-        this.props.loadNotes();
+        this.props.onAddNote(image, type)
+        this.setState({ url: '' , title:'',});
+
     };
 
 
