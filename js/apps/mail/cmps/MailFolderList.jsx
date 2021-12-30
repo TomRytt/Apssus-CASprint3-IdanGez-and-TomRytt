@@ -15,23 +15,18 @@ export function MailFolderList({mails, onSetFilter}) {
 			<Link className='primary-btn clean-link' to='/mail/composemail'>
 				<button>Compose Mail</button>
 			</Link>
-			<button onClick={() => onSetFilter({searchVal: '', isRead: 'all'})}>
-				Inbox
-			</button>
-			<button onClick={() => onSetFilter({isStrred: true})}>Starred</button>
-			<button onClick={() => onSetFilter({isSent: true})}>Sent Mail</button>
-			<button onClick={() => onSetFilter({isDelted: true})}>Deleted</button>
-			<button onClick={() => onSetFilter({isDraft: true})}>Draft</button>
+			<button onClick={() => onSetFilter({status: 'inbox'})}>Inbox</button>
+			<button onClick={() => onSetFilter({isStarred: 'true'})}>Starred</button>
+			<button onClick={() => onSetFilter({status: 'sent'})}>Sent Mail</button>
+			<button onClick={() => onSetFilter({status: 'trash'})}>Deleted</button>
+			<button onClick={() => onSetFilter({status: 'draft'})}>Draft</button>
 			<label>
 				<meter
 					className='unread-meter'
 					max='100'
 					value={`${updateUnreadMeter()}`}></meter>
+				<span>{`${updateUnreadMeter().toFixed(2)}`}%</span>
 			</label>
 		</div>
 	);
 }
-
-// Add Compose button in this component as a prop here
-//  Allow filtering by different folders: inbox / sent / trash/ draft
-//  Allow viewing the sent emails

@@ -1,10 +1,10 @@
 export class MailFilter extends React.Component {
 	state = {
 		filterBy: {
+			status: null,
 			searchVal: '',
 			isRead: 'all',
 			isStarred: null,
-			isDeleted: null,
 		},
 	};
 

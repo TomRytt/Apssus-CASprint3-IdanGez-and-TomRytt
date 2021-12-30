@@ -10,7 +10,7 @@ export function MailList({mails, openMail, onDeleteMail}) {
 					key={mail.id}
 					mail={mail}
 					openMail={() => openMail(mail.id)}
-					onDeleteMail={() => onDeleteMail(mail.id)}
+					onDeleteMail={() => onDeleteMail(mail)}
 				/>
 			))}
 		</section>

@@ -5,11 +5,14 @@ export class MailCompose extends React.Component {
 	state = {
 		mail: {
 			id: mailService.getNewMailId(),
+			status: 'sent',
 			by: 'User',
 			from: 'user@appsus.com',
 			subject: '',
 			body: '',
 			isRead: false,
+			isStarred: false,
+			isDeleted: false,
 			sentAt: Date.now(),
 			to: '',
 			isOpen: false,

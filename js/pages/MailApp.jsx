@@ -16,18 +16,16 @@ const {Route, Switch} = ReactRouterDOM;
 export class MailApp extends React.Component {
 	state = {
 		mails: [],
-		filterBy: null,
+		filterBy: {
+			status: null,
+			searchVal: '',
+			isRead: 'all',
+			isStarred: null,
+		},
 	};
 
-	// componentDidUpdate() {
-	// 	const mails = mailService.getMails();
-	// 	if (mails.length && mails.length !== this.state.mails.length) {
-	// 		this.loadMails();
-	// 	}
-	// }
-
 	openMail = (mailId) => {
-		const mails = mailService.getMails();
+		const {mails} = this.state;
 		mails.map((mail) => {
 			if (mail.id !== mailId) mail.isOpen = false;
 			if (mail.id === mailId) {
@@ -35,8 +33,7 @@ export class MailApp extends React.Component {
 				mail.isRead = true;
 			}
 		});
-		this.setState({mails: mails});
-		mailService.saveMails(mails);
+		this.setState({mails});
 	};
 
 	componentWillUnmount() {
@@ -55,6 +52,7 @@ export class MailApp extends React.Component {
 	}
 
 	loadMails = () => {
+		console.log('in load mails');
 		const {filterBy} = this.state;
 		mailService.query(filterBy).then((mails) => {
 			mails.map((mail) => {
@@ -64,36 +62,33 @@ export class MailApp extends React.Component {
 		});
 	};
 
-	onDeleteMail = (mailId) => {
-		mailService.deleteMail(mailId);
+	onDeleteMail = (mail) => {
+		const mails = this.state;
+		console.log(mail);
+		mailService.deleteMail(mail);
+		this.setState({mails});
+		this.loadMails();
 	};
 
 	onSetFilter = (filterBy) => {
-		console.log(filterBy);
 		this.setState({filterBy}, this.loadMails);
-	};
-
-	onCG = () => {
-		console.log('hi again');
 	};
 
 	render() {
 		const mailsToShow = this.state.mails;
 		return (
 			<section className='mail-app-container'>
-				{
-					<MailFilter
-						className='mail-filter'
-						filterBy={this.state.filterBy}
-						onSetFilter={this.onSetFilter}
-					/>
-				}
+				<MailFilter
+					className='mail-filter'
+					filterBy={this.state.filterBy}
+					onSetFilter={this.onSetFilter}
+				/>
+
 				<MailFolderList
 					className='mail-folder-list'
 					filterBy={this.state.filterBy}
 					onSetFilter={this.onSetFilter}
 					mails={mailsToShow}
-					onCG={this.onCG}
 				/>
 				<Switch>
 					<Route

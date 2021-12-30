@@ -33,6 +33,7 @@ function getLoggedinUser() {
 	return loggedinUser;
 }
 
+// Increase the demo-data by 3-fold
 function query(filterBy = null) {
 	let mails = _loadMailsFromStorage();
 	if (!mails || !mails.length) {
@@ -40,6 +41,7 @@ function query(filterBy = null) {
 		mails = [
 			{
 				id: utilService.makeId(),
+				status: 'sent',
 				by: `User`, // Add Capitalization
 				from: 'user@appsus.com',
 				subject: 'Care to join the dark side?',
@@ -48,11 +50,11 @@ function query(filterBy = null) {
 				sentAt: 1551133930594,
 				to: 'momo@momo.com',
 				isOpen: false,
-				isDeleted: false,
 				isStarred: false,
 			},
 			{
 				id: utilService.makeId(),
+				status: 'sent',
 				by: `User`, // Add Capitalization
 				from: 'user@appsus.com',
 				subject: 'Lets code together',
@@ -61,11 +63,11 @@ function query(filterBy = null) {
 				sentAt: 1551133930594,
 				to: 'arealemailaddress@gmail.com',
 				isOpen: false,
-				isDeleted: false,
-				isStarred: false,
+				isStarred: true,
 			},
 			{
 				id: utilService.makeId(),
+				status: 'inbox',
 				by: `Rick`, // Add Capitalization
 				from: 'rickastley@apssus.com',
 				subject: 'Check out this cool React tutorial I found',
@@ -74,11 +76,11 @@ function query(filterBy = null) {
 				sentAt: 1551133930594,
 				to: 'user@appsus.com',
 				isOpen: false,
-				isDeleted: false,
 				isStarred: false,
 			},
 			{
 				id: utilService.makeId(),
+				status: 'trash',
 				by: `User`, // Add Capitalization
 				from: 'user@appsus.com',
 				subject: 'Have you read what Lorem Ipsum means??',
@@ -87,11 +89,11 @@ function query(filterBy = null) {
 				sentAt: 1551133930594,
 				to: 'fakeemail@appsus.com',
 				isOpen: false,
-				isDeleted: false,
-				isStarred: false,
+				isStarred: true,
 			},
 			{
 				id: utilService.makeId(),
+				status: 'inbox',
 				by: 'Oded Kovo',
 				from: 'notodedsrealmail@appsus.com',
 				subject: 'Check out my Lorems',
@@ -100,7 +102,6 @@ function query(filterBy = null) {
 				sentAt: 1551133930594,
 				to: 'user@appsus.com',
 				isOpen: false,
-				isDeleted: false,
 				isStarred: false,
 			},
 		];
@@ -116,6 +117,7 @@ function query(filterBy = null) {
 function addMail(mail) {
 	const newMail = {
 		id: mail.id,
+		status: mail.status,
 		by: mail.by,
 		from: mail.from,
 		subject: mail.subject,
@@ -124,6 +126,7 @@ function addMail(mail) {
 		sentAt: mail.sentAt,
 		to: mail.to,
 		isOpen: mail.isOpen,
+		isStarred: false,
 	};
 	const mails = _loadMailsFromStorage();
 	mails.unshift(newMail);
@@ -139,14 +142,22 @@ function getMails() {
 	return _loadMailsFromStorage();
 }
 
-function deleteMail(mailId) {
+function deleteMail(foundMail) {
+	console.log(foundMail);
 	const mails = _loadMailsFromStorage();
-	let mail = mails.findIndex((mail) => {
-		return mailId === mail.id;
+	let foundMailIdx = mails.findIndex((mail) => {
+		return foundMail.id === mail.id;
 	});
-	console.log(mail);
-	if (mail.isDeleted) mails.splice(mail, 1);
-	_saveMailsToStorage(mails);
+	if (mails[foundMailIdx].status !== 'trash') {
+		mails[foundMailIdx].status = 'trash';
+		mails[foundMailIdx].isStarred = false;
+		mails[foundMailIdx].isRead = false;
+		_saveMailsToStorage(mails);
+		console.log(mails);
+	} else if (foundMail.status === 'trash') {
+		mails.splice(foundMailIdx, 1);
+		_saveMailsToStorage(mails);
+	}
 }
 
 function getMailById(mailId) {
@@ -164,14 +175,34 @@ function getNewMailId() {
 // Private Funcs
 
 function _getFilteredMails(mails, filterBy) {
-	let {searchVal, isRead} = filterBy;
+	let {status, searchVal, isRead, isStarred} = filterBy;
 	if (isRead === 'read') isRead = true;
 	else if (isRead === 'unread') isRead = false;
 	return mails.filter((mail) => {
-		if (isRead === 'all') return mails && mail.subject.includes(searchVal);
-		else if (!searchVal) return mail.isRead === isRead;
-		else if (!searchVal && !mail.isRead) return mails;
-		return mail.subject.includes(searchVal) && mail.isRead === isRead;
+		if (status) return mail.status === status;
+		else if (isStarred === 'true') return mail.isStarred;
+		else if (mail.status !== 'trash') {
+			if (isRead === 'all') {
+				return (
+					(mails &&
+						mail.subject.toLowerCase().includes(searchVal.toLowerCase())) ||
+					mail.body.toLowerCase().includes(searchVal.toLowerCase()) ||
+					mail.from.toLowerCase().includes(searchVal.toLowerCase()) ||
+					mail.by.toLowerCase().includes(searchVal.toLowerCase()) ||
+					(mail.to.toLowerCase().includes(searchVal.toLowerCase()) &&
+						mail.isRead === isRead)
+				);
+			} else if (!searchVal) return mail.isRead === isRead;
+			else if (!searchVal && !mail.isRead) return mails;
+			return (
+				mail.subject.toLowerCase().includes(searchVal.toLowerCase()) ||
+				mail.body.toLowerCase().includes(searchVal.toLowerCase()) ||
+				mail.from.toLowerCase().includes(searchVal.toLowerCase()) ||
+				mail.by.toLowerCase().includes(searchVal.toLowerCase()) ||
+				(mail.to.toLowerCase().includes(searchVal.toLowerCase()) &&
+					mail.isRead === isRead)
+			);
+		}
 	});
 }
 
