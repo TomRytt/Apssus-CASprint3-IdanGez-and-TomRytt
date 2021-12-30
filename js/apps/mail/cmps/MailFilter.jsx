@@ -1,8 +1,11 @@
+//  Allow filtering
+// • Start with Search and Read / Unread
+
 export class MailFilter extends React.Component {
 	state = {
 		filterBy: {
 			searchVal: '',
-			read: null,
+			isRead: 'all',
 		},
 	};
 
@@ -20,15 +23,50 @@ export class MailFilter extends React.Component {
 	onSubmitFilter = (ev) => {
 		ev.preventDefault();
 		this.props.onSetFilter(this.state.filterBy);
-		this.cleanForm();
+		// this.cleanForm();
 	};
 
 	cleanForm = () => {
-		this.setState({filterBy: {searchVal: '', read: null}});
+		this.setState({filterBy: {searchVal: '', isRead: null}});
 	};
 
 	render() {
-		return <h1>MailFilter</h1>;
+		const {searchVal, read} = this.state;
+		return (
+			<div className='mail-filter-container'>
+				<form className='mail-filter' onSubmit={this.onSubmitFilter}>
+					<label htmlFor='searchVal'></label>
+					<input
+						placeholder='Enter title'
+						type='text'
+						id='searchVal'
+						name='searchVal'
+						value={searchVal}
+						onChange={this.handleChange}
+					/>
+					<select
+						name='isRead'
+						id='isRead'
+						onChange={this.handleChange}
+						value={read}>
+						<option value='all'>all</option>
+						<option value='read'>read</option>
+						<option value='unread'>unread</option>
+					</select>
+					{/* <label htmlFor='by-max-price'></label>
+					<input
+						placeholder='Enter maximum price'
+						type='number'
+						min='0'
+						id='by-max-price'
+						name='maxPrice'
+						value={maxPrice}
+						onChange={this.handleChange}
+					/> */}
+					<button>Filter</button>
+				</form>
+			</div>
+		);
 	}
 }
 

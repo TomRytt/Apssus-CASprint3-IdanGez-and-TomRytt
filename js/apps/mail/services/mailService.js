@@ -1,3 +1,12 @@
+// The emailService query function should get a criteria(filterBy) object, here is an idea:
+// const criteria = {
+//  status: 'inbox/sent/trash/draft',
+//  txt: 'puki', // no need to support complex text search
+//  isRead: true, // (optional property, if missing: show all)
+//  isStared: true, // (optional property, if missing: show all)
+//  lables: ['important', 'romantic'] // has any of the labels
+// }
+
 import {storageService} from '../../../services/storage.service.js';
 
 import {utilService} from '../../../services/util.service.js';
@@ -9,6 +18,8 @@ export const mailService = {
 	getMailById,
 	getNewMailId,
 	deleteMail,
+	getMails,
+	saveMails,
 };
 
 const KEY = 'mailsDB';
@@ -28,7 +39,7 @@ function query(filterBy = null) {
 		console.log('from json');
 		mails = [
 			{
-				id: 'e101',
+				id: utilService.makeId(),
 				by: `User`, // Add Capitalization
 				from: 'user@appsus.com',
 				subject: 'Care to join the dark side?',
@@ -40,7 +51,7 @@ function query(filterBy = null) {
 				isDeleted: false,
 			},
 			{
-				id: 'e102',
+				id: utilService.makeId(),
 				by: `User`, // Add Capitalization
 				from: 'user@appsus.com',
 				subject: 'Lets code together',
@@ -52,7 +63,7 @@ function query(filterBy = null) {
 				isDeleted: false,
 			},
 			{
-				id: 'e103',
+				id: utilService.makeId(),
 				by: `Rick`, // Add Capitalization
 				from: 'rickastley@apssus.com',
 				subject: 'Check out this cool React tutorial I found',
@@ -64,7 +75,7 @@ function query(filterBy = null) {
 				isDeleted: false,
 			},
 			{
-				id: 'e104',
+				id: utilService.makeId(),
 				by: `User`, // Add Capitalization
 				from: 'user@appsus.com',
 				subject: 'Have you read what Lorem Ipsum means??',
@@ -76,7 +87,7 @@ function query(filterBy = null) {
 				isDeleted: false,
 			},
 			{
-				id: 'e105',
+				id: utilService.makeId(),
 				by: 'Oded Kovo',
 				from: 'notodedsrealmail@appsus.com',
 				subject: 'Check out my Lorems',
@@ -115,6 +126,14 @@ function addMail(mail) {
 	return Promise.resolve();
 }
 
+function saveMails(mails) {
+	return _saveMailsToStorage(mails);
+}
+
+function getMails() {
+	return _loadMailsFromStorage();
+}
+
 function deleteMail(mailId) {
 	const mails = _loadMailsFromStorage();
 	let mail = mails.findIndex((mail) => {
@@ -128,14 +147,23 @@ function deleteMail(mailId) {
 function getMailById(mailId) {}
 
 function getNewMailId() {
-	const mails = _loadMailsFromStorage();
-	const newMailId = `e10${+mails.length + 1}`;
-	return newMailId;
+	return utilService.makeId();
 }
 
 // Private Funcs
 
-function _getFilteredMails(mails, filterBy) {}
+function _getFilteredMails(mails, filterBy) {
+	let {searchVal, isRead} = filterBy;
+	if (isRead === 'all') isRead = '';
+	else if (isRead === 'read') isRead = true;
+	else if (isRead === 'unread') isRead = false;
+	return mails.filter((mail) => {
+		if (!isRead) return mail.subject.includes(searchVal);
+		else if (!searchVal) return mail.isRead === isRead;
+		else if (!searchVal && !mail.isRead) return mails;
+		return mail.subject.includes(searchVal) && mail.isRead === isRead;
+	});
+}
 
 function _saveMailsToStorage(mails) {
 	storageService.saveToStorage(KEY, mails);

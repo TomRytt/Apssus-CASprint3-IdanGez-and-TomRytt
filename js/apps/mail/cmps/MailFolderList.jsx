@@ -5,5 +5,6 @@ export class MailFolderList extends React.Component {
 }
 
 // Add Compose button in this component as a prop here
+//  Allow filtering by different folders: inbox / sent / trash/ draft
 //  Display the unread emails count
 //  Allow viewing the sent emails
