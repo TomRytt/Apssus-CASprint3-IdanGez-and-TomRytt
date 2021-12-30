@@ -1,6 +1,7 @@
 import { noteService } from '../apps/keep/services/note.service.js';
 import { NoteList } from '../apps/keep/cmps/note-list.jsx';
 import { AddNote } from '../apps/keep/cmps/AddNote.jsx';
+import { ColorInput } from '../apps/keep/cmps/ColorInput.jsx'
 export class NotesApp extends React.Component {
 
 	state = {
@@ -14,7 +15,7 @@ export class NotesApp extends React.Component {
 
 	loadNotes = () => {
 		noteService.query().then((notes) => {
-			this.setState((prevState) => ({ ...prevState, notes }), () => console.log(notes, this.state.notes))
+			this.setState((prevState) => ({ ...prevState, notes }))
 			// console.log(notes)
 		})
 	}
@@ -40,7 +41,7 @@ export class NotesApp extends React.Component {
 
 	onDeleteNote = (noteId) => {
 		noteService.deleteNote(noteId).then(() => {
-			this.loadNotes() 
+			this.loadNotes()
 		})
 	}
 	// noteService.query().then((notes) => this.setState({ notes }))
@@ -63,6 +64,7 @@ export class NotesApp extends React.Component {
 					loadNotes={this.loadNotes}
 					onDeleteNote={this.onDeleteNote}
 					notes={notes} />
+				{/* <ColorInput /> */}
 			</section>
 		)
 
