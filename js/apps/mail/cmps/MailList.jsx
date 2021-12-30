@@ -7,7 +7,7 @@ const {Link} = ReactRouterDOM;
 export function MailList({mails, openMail, onDeleteMail}) {
 	return (
 		<section className='mail-list-container'>
-			{mails.map((mail, idx) => (
+			{mails.map((mail) => (
 				<MailPreview
 					key={mail.id}
 					mail={mail}

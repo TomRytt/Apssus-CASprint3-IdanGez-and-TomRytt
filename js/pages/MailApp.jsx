@@ -1,6 +1,5 @@
 // Services
 import {mailService} from '../apps/mail/services/mailService.js';
-import {storageService} from '../../js/services/storage.service.js';
 
 // Pages
 import {MailCompose} from '../apps/mail/pages/MailCompose.jsx';
@@ -20,24 +19,24 @@ export class MailApp extends React.Component {
 		filterBy: null,
 	};
 
-	componentDidUpdate() {
-		const mails = storageService.loadFromStorage('mailsDB');
-		if (mails.length && mails.length !== this.state.mails.length) {
-			this.loadMails();
-		}
-	}
+	// componentDidUpdate() {
+	// 	const mails = mailService.getMails();
+	// 	if (mails.length && mails.length !== this.state.mails.length) {
+	// 		this.loadMails();
+	// 	}
+	// }
 
 	openMail = (mailId) => {
-		const mails = storageService.loadFromStorage('mailsDB');
+		const mails = mailService.getMails();
 		mails.map((mail) => {
 			if (mail.id !== mailId) mail.isOpen = false;
 			if (mail.id === mailId) {
 				mail.isOpen = !mail.isOpen;
-				mail.isRead = !mail.isRead;
+				mail.isRead = true;
 			}
 		});
 		this.setState({mails: mails});
-		storageService.saveToStorage('mailsDB', mails);
+		mailService.saveMails(mails);
 	};
 
 	componentWillUnmount() {
@@ -47,28 +46,36 @@ export class MailApp extends React.Component {
 			mail.isOpen = false;
 		});
 		console.log(mails);
-		storageService.saveToStorage('mailsDB', mails);
+		mailService.saveMails(mails);
 	}
 
 	componentDidMount() {
 		console.log('Im up');
 		this.loadMails();
-		// const {mails} = this.state;
-		// mails.map((mail) => {
-		// 	mail.isOpen = false;
-		// });
-		// console.log(mails);
-		// this.setState({mails: mails});
 	}
 
 	loadMails = () => {
 		const {filterBy} = this.state;
+		console.log(filterBy);
 		mailService.query(filterBy).then((mails) => {
 			mails.map((mail) => {
 				mail.isOpen = false;
 			});
 			this.setState({mails});
 		});
+	};
+
+	onSendMail = (ev) => {
+		ev.preventDefault();
+		const {mail} = this.state;
+		mailService.addMail(mail);
+		this.props.loadMails();
+		window.location.replace('/index.html#/mail');
+	};
+
+	onDiscardMail = (ev) => {
+		ev.preventDefault();
+		window.location.replace('/index.html#/mail');
 	};
 
 	onDeleteMail = (mailId) => {
@@ -90,7 +97,17 @@ export class MailApp extends React.Component {
 						onSetFilter={this.onSetFilter}
 					/>
 				}
-				<Route component={MailCompose} path='/mail/composemail' />
+				{/* <Route component={MailCompose} path='/mail/composemail' /> */}
+				<Route
+					component={() => (
+						<MailCompose
+							loadMails={this.loadMails}
+							onDiscardMail={this.onDiscardMail}
+							onSendMail={this.onSendMail}
+						/>
+					)}
+					path='/mail/composemail'
+				/>
 				<MailList
 					className='mail-list'
 					mails={mailsToShow}
