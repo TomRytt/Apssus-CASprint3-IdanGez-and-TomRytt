@@ -7,7 +7,6 @@ export class NotePreview extends React.Component {
 
     onChangeNoteColor = (ev) => {
         this.setState({ noteColor: ev.target.value })
-        console.log(this.state)
     }
 
     render() {
