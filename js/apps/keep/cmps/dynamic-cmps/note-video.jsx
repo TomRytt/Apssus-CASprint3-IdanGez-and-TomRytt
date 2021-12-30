@@ -1,10 +1,14 @@
-export function VideoNote({ note }) {
-    return (
-        <div className="video-note">
+export class VideoNote extends React.Component {
 
-            <iframe width="420" height="315"
-                src={note.info.url}>
-            </iframe>
-        </div>
-    )
+    render() {
+        const { note } = this.props
+        return (
+            <div className="video-note">
+                <iframe width="420" height="315"
+                    src={note.info.url}>
+                </iframe>
+                <button onClick={() => this.props.onDeleteNote(note.id)}>Delete Note</button>
+            </div>
+        )
+    }
 }

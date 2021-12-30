@@ -1,12 +1,12 @@
-import {NotePreview} from './note-preview.jsx'
+import { NotePreview } from './note-preview.jsx'
 
-export function NoteList({notes}){
+export function NoteList({ notes, loadNotes, onDeleteNote }) {
     return (
-        
         <section className="note-list">
-            {notes.map((note,idx) =><React.Fragment key={idx}> <NotePreview note={note} /></React.Fragment> )}
+            {notes.map((note, idx) => <NotePreview key={idx} loadNotes={loadNotes}
+                onDeleteNote={onDeleteNote}
+                note={note} />)}
         </section>
     )
 }
 
-// key={note.id}

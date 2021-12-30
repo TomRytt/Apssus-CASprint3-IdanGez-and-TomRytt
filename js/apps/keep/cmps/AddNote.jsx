@@ -13,15 +13,19 @@ export class AddNote extends React.Component {
     }
 
     render() {
-        const { loadNotes } = this.props
+        const {loadNotes, onAddNote, handleChange} = this.props
         const { type } = this.state
         return (
-            <div className="note-add-main">What's on your mind?
+            <div className="note-add-main">
                 <button value="text" onClick={this.handleChange}>Note</button>
                 <button value="img" onClick={this.handleChange}>Image</button>
                 <button value="todos" onClick={this.handleChange}>Todos</button>
                 <button value="video" onClick={this.handleChange}>Video</button>
-                <DynamicTodoAdd loadNotes={loadNotes} type={type} />
+                <DynamicTodoAdd 
+                loadNotes={loadNotes} 
+                onAddNote={onAddNote}
+                handleChange={handleChange}
+                type={type} />
             </div>)
     }
 }

@@ -3,16 +3,25 @@ import { ImgNote } from './note-img.jsx'
 import { TodosNote } from './note-todos.jsx'
 import { VideoNote } from './note-video.jsx'
 
-export function DynamicCmp({ note }) {
+export function DynamicCmp({ note, onDeleteNote }) {
+
     switch (note.type) {
         case 'note-txt':
-            return <TextNote note={note} />
+            return <TextNote
+                onDeleteNote={onDeleteNote}
+                note={note} />
         case 'note-img':
-            return <ImgNote note={note} />
+            return <ImgNote
+                onDeleteNote={onDeleteNote}
+                note={note} />
         case 'note-todos':
-            return <TodosNote note={note} />
+            return <TodosNote
+                onDeleteNote={onDeleteNote}
+                note={note} />
         case 'note-video':
-            return <VideoNote note={note} />
+            return <VideoNote
+                onDeleteNote={onDeleteNote}
+                note={note} />
         default:
             return <React.Fragment></React.Fragment>
     }
