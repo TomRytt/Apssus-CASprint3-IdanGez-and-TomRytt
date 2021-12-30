@@ -1,27 +1,21 @@
+// import {utilService} from '../../../../js/services/util.service';
+
 import {MailPreview} from './MailPreview.jsx';
 
 const {Link} = ReactRouterDOM;
 
-export function MailList({mails}) {
-	function openMail(mailId) {
-		mails.map((mail) => {
-			if (mail.id !== mailId) mail.isOpen = false;
-			if (mail.id === mailId) {
-				mail.isOpen = !mail.isOpen;
-				mail.isRead = true;
-			}
-		});
-	}
-
+export function MailList({mails, openMail, onDeleteMail}) {
 	return (
 		<section className='mail-list-container'>
-			{mails.map((mail) => (
+			{mails.map((mail, idx) => (
 				<MailPreview
 					key={mail.id}
 					mail={mail}
 					openMail={() => openMail(mail.id)}
+					onDeleteMail={() => onDeleteMail(mail.id)}
 				/>
 			))}
+			{/* Move compose button and CMP to the mailApp */}
 			<Link className='primary-btn clean-link' to='/mail/composemail'>
 				<button>Compose Mail</button>
 			</Link>

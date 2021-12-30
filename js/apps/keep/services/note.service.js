@@ -1,5 +1,5 @@
-import { storageService } from '../../../services/storage.service.js'
-import { utilService } from '../../../services/util.service.js'
+import {storageService} from '../../../services/storage.service.js';
+import {utilService} from '../../../services/util.service.js';
 export const noteService = {
   query,
   // addTxtNote,
@@ -9,7 +9,7 @@ export const noteService = {
   tester
 }
 
-const STORAGE_KEY = 'notesDB'
+const STORAGE_KEY = 'notesDB';
 const gNotes = [
   { id: "n101", type: "note-txt", isPinned: true, info: { txt: "Fullstack Me Baby!" } },
   { id: "n102", type: "note-img", info: { url: "https://images.unsplash.com/photo-1599302592205-d7d683c83eea?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dHJvcGljYWwlMjBzdW5zZXR8ZW58MHx8MHx8&w=1000&q=80", title: "Bobi and Me" }, style: { backgroundColor: "#00d" } },
@@ -20,20 +20,20 @@ const gNotes = [
 
 
 function _createNotes() {
-  let notes = _loadNotesFromStorage();
-  if (!notes || !notes.length) {
-    notes = gNotes;
-  }
-  _saveNotesToStorage(notes)
+	let notes = _loadNotesFromStorage();
+	if (!notes || !notes.length) {
+		notes = gNotes;
+	}
+	_saveNotesToStorage(notes);
 }
-_createNotes()
+_createNotes();
 
 function query() {
-  const notes = _loadNotesFromStorage()
-  // console.log(notes)
-  // if(!filterBy) return Promise.resolve(notes);
-  // const filteredNotes = _get 
-  return notes
+	const notes = _loadNotesFromStorage();
+	// console.log(notes)
+	// if(!filterBy) return Promise.resolve(notes);
+	// const filteredNotes = _get
+	return notes;
 }
 
 function tester() {
@@ -99,9 +99,9 @@ function newTodoNote(input, type) {
     // todos: texts.map(txt => ({txt, dontAt:null}))
 
 function _saveNotesToStorage(notes) {
-  storageService.saveToStorage(STORAGE_KEY, notes);
+	storageService.saveToStorage(STORAGE_KEY, notes);
 }
 
 function _loadNotesFromStorage() {
-  return storageService.loadFromStorage(STORAGE_KEY);
+	return storageService.loadFromStorage(STORAGE_KEY);
 }

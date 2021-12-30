@@ -3,8 +3,6 @@ export const storageService = {
 	saveToStorage,
 };
 
-// const KEY = 'bookDB';
-
 function saveToStorage(key, val) {
 	localStorage.setItem(key, JSON.stringify(val));
 }
