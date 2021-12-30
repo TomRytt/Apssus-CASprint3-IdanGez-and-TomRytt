@@ -1,4 +1,3 @@
-import { noteService } from '../../services/note.service.js'
 export class VideoNoteAdd extends React.Component {
 
     state = {
