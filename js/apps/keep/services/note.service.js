@@ -1,5 +1,5 @@
-import {storageService} from '../../../services/storage.service.js';
-import {utilService} from '../../../services/util.service.js';
+import { storageService } from '../../../services/storage.service.js';
+import { utilService } from '../../../services/util.service.js';
 export const noteService = {
 	query,
 	addNewNote,
@@ -12,7 +12,7 @@ const gNotes = [
 		id: 'n101',
 		type: 'note-txt',
 		isPinned: true,
-		info: {txt: 'Fullstack Me Baby!'},
+		info: { txt: 'Fullstack Me Baby!' },
 	},
 	{
 		id: 'n102',
@@ -21,7 +21,7 @@ const gNotes = [
 			url: 'https://images.unsplash.com/photo-1599302592205-d7d683c83eea?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dHJvcGljYWwlMjBzdW5zZXR8ZW58MHx8MHx8&w=1000&q=80',
 			title: 'Bobi and Me',
 		},
-		style: {backgroundColor: '#00d'},
+		style: { backgroundColor: '#00d' },
 	},
 	{
 		id: 'n103',
@@ -29,8 +29,8 @@ const gNotes = [
 		info: {
 			label: 'Get my stuff together',
 			todos: [
-				{txt: 'Driving liscence', doneAt: null},
-				{txt: 'Coding power', doneAt: 187111111},
+				{ txt: 'Driving liscence', doneAt: null },
+				{ txt: 'Coding power', doneAt: 187111111 },
 			],
 		},
 	},
@@ -38,26 +38,36 @@ const gNotes = [
 		id: 'n104',
 		type: 'note-video',
 		isPinned: true,
-		info: {url: 'https://www.youtube.com/embed/LHAgUebnlXI'},
+		info: { url: 'https://www.youtube.com/embed/LHAgUebnlXI' },
 	},
 	{
 		id: 'n105',
 		type: 'note-txt',
 		isPinned: true,
-		info: {txt: 'Fullstack Me Baby!'},
+		info: { txt: 'Fullstack Me Baby!' },
 	},
 ];
 
-function query() {
+function query(filterBy = null) {
 	let notes = _loadNotesFromStorage();
 	if (!notes || !notes.length) {
 		notes = gNotes;
 		_saveNotesToStorage(notes);
 	}
-	// if(!filterBy) return Promise.resolve(notes);
-	// const filteredNotes = _get
-	return Promise.resolve(notes);
+	if (!filterBy) return Promise.resolve(notes);
+	const filteredNotes = _getFilteredNotes(notes, filterBy)
+	console.log(filteredNotes);
+	return Promise.resolve(filteredNotes);
 }
+
+function _getFilteredNotes(notes, filterBy) {
+	const { searchValue, searchType } = filterBy
+	return notes.filter(note => {
+		if (note.type === searchType) return note
+		// return note.info.txt.includes(searchValue) || note.info.url.includes(searchValue) || note.info.label.includes(searchValue) 
+	})
+}
+
 
 function addNewNote(input, type) {
 	let notes = _loadNotesFromStorage();
@@ -74,7 +84,7 @@ function _createNewNote(input, type) {
 				id: utilService.makeId(),
 				type: type,
 				isPinned: false,
-				info: {txt: input},
+				info: { txt: input },
 			};
 		case 'note-img':
 			return {
@@ -93,7 +103,7 @@ function _createNewNote(input, type) {
 				id: utilService.makeId(),
 				type: type,
 				isPinned: false,
-				info: {url: input},
+				info: { url: input },
 			};
 	}
 }

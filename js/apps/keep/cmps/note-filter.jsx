@@ -1,63 +1,59 @@
 export class NoteFilter extends React.Component {
 
-    state = {
-        filterBy: {
-            search: '',
-            type: '',
-        },
-    };
+  state = {
+    filterBy: {
+      searchValue: '',
+      searchType: '',
+    },
+  };
 
-    onSubmitFilter = (ev) => {
-        ev.preventDefault();
-        this.props.onSetFilter(this.state.filterBy);
-        this.cleanFrom();
-    }
+  handleChange = ({ target }) => {
+    const field = target.name;
+    const value = (target.type === 'number') ? +target.value : target.value;
+    this.setState((prevState) => ({ filterBy: { ...prevState.filterBy, [field]: value } }), () => {
+      this.props.onSetFilter(this.state.filterBy)
+    });
+  }
 
-    handleChange = ({ target }) => {
-        const field = target.name;
-        const value = (target.type === 'number') ? +target.value : target.value;
-        this.setState((prevState) => ({ filterBy: { ...prevState.filterBy, [field]: value } }), () => {
-            this.props.onSetFilter(this.state.filterBy)
-        });
-    }
+  onSubmitFilter = (ev) => {
+    console.log('hi')
+    ev.preventDefault();
+    this.props.onSetFilter(this.state.filterBy);
+    this.cleanFrom();
+  }
 
-    cleanFrom= () => {
-        this.setState({ filterBy: {search: '', type: ''}})
-    }
+  cleanFrom = () => {
+    this.setState({ filterBy: { searchValue: '', searchType: '' } })
+  }
 
-    render() {
-        const { filterBy: {search, type} } = this.state
+  render() {
+    const { filterBy: { searchValue, searchType } } = this.state
 
-        return (
-            <form className="note-filter" onSubmit={this.onSubmitFilter}>
-            <label htmlFor="by-search">By Title:</label>
-            <input
-              type="text"
-              id="by-title"
-              name="title"
-              value={title}
-              onChange={this.handleChange}
-            />
-            <label htmlFor="by-min-price">Min price:</label>
-            <input
-              type="number"
-              id="by-min-price"
-              name="minPrice"
-              value={minPrice}
-              min="0"
-              onChange={this.handleChange}
-            />
-            <label htmlFor="by-max-price">Max price:</label>
-            <input
-              type="number"
-              id="by-max-price"
-              name="maxPrice"
-              value={maxPrice}
-              min="0"
-              onChange={this.handleChange}
-            />
-            <button>Filter</button>
-          </form>
-        );
-      }
+    return (
+      <div className="notes-filter-container">
+        <form className="note-filter" onSubmit={this.onSubmitFilter}>
+          <label htmlFor="note-search">Search Note:</label>
+          <input
+            placeholder="Search note"
+            type="text"
+            id="note-search"
+            name="searchValue"
+            value={searchValue}
+            onChange={this.handleChange}
+          />
+          <select
+            name="searchType"
+            id="noteType"
+            onChange={this.handleChange}
+            value={searchType}>
+            <option value="note-txt">Text Notes</option>
+            <option value="note-todos">Todo Notes</option>
+            <option value="note-video">Video Notes</option>
+            <option value="note-img">Image Notes</option>
+          </select>
+          <button className="filter-btn">Filter</button>
+        </form>
+      </div>
+    );
+  }
 }

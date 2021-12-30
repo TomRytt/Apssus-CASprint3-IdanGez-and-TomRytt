@@ -1,7 +1,7 @@
 import { noteService } from '../apps/keep/services/note.service.js';
 import { NoteList } from '../apps/keep/cmps/note-list.jsx';
 import { AddNote } from '../apps/keep/cmps/AddNote.jsx';
-import { ColorInput } from '../apps/keep/cmps/ColorInput.jsx'
+import { NoteFilter } from '../apps/keep/cmps/note-filter.jsx';
 export class NotesApp extends React.Component {
 
 	state = {
@@ -14,24 +14,16 @@ export class NotesApp extends React.Component {
 	}
 
 	loadNotes = () => {
-		noteService.query().then((notes) => {
+		const {filterBy} = this.state
+		noteService.query(filterBy).then((notes) => {
 			this.setState((prevState) => ({ ...prevState, notes }))
-			// console.log(notes)
 		})
 	}
-	// componentDidupdate() {
-	// 	if(this.state.notes)
 
-	// }
-	// componentDidUpdate() {
-	// 	noteService.query().then((notes) => {
-	// 		if (notes.length && notes.length !== this.state.notes.length) {
-	// 			this.loadNotes();
-	// 		}
-
-	// 	})
-	// }
-
+	onSetFilter = (filterBy) => {
+		this.setState({ filterBy }, this.loadNotes)
+		console.log('onsetfilter', filterBy)
+	}
 
 	onAddNote = (input, type) => {
 		noteService.addNewNote(input, type).then(() => {
@@ -44,27 +36,28 @@ export class NotesApp extends React.Component {
 			this.loadNotes()
 		})
 	}
-	// noteService.query().then((notes) => this.setState({ notes }))
-
-	// onSetFilter = (filterBy) => {
-	// 	this.setState({filterBy}, this.loadBooks)
-	// }
 
 	render() {
 		const { notes } = this.state;
 		return (
 			<section className="note=App">
 				<h1>NotesApp</h1>
+				<NoteFilter
+					className="note-filter"
+					filterBy={this.state.filterBy}
+					onSetFilter={this.onSetFilter}
+				/>
 				<AddNote
+					className="add-note-main"
 					loadNotes={this.loadNotes}
 					handleChange={this.handleChange}
 					onAddNote={this.onAddNote}
-					notes={notes} />
+					notes={notes}
+				/>
 				<NoteList
 					loadNotes={this.loadNotes}
 					onDeleteNote={this.onDeleteNote}
 					notes={notes} />
-				{/* <ColorInput /> */}
 			</section>
 		)
 
