@@ -3,16 +3,16 @@ import { ImgNoteAdd } from './ImgNoteAdd.jsx'
 import { TodoNoteAdd } from './TodoNoteAdd.jsx'
 import { VideoNoteAdd } from './VideoNoteAdd.jsx'
 
-export function DynamicTodoAdd({type}) {
+export function DynamicTodoAdd({type, loadNotes}) {
     switch (type) {
         case 'text':
-            return <TextNoteAdd />
+            return <TextNoteAdd loadNotes={loadNotes} />
         case 'img':
-            return <ImgNoteAdd />
+            return <ImgNoteAdd loadNotes={loadNotes} />
         case 'todos':
-            return <TodoNoteAdd />
+            return <TodoNoteAdd loadNotes={loadNotes} />
         case 'video':
-            return <VideoNoteAdd />
+            return <VideoNoteAdd loadNotes={loadNotes} />
         default:
             return <React.Fragment></React.Fragment>
     }

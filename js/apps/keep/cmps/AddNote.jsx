@@ -12,34 +12,16 @@ export class AddNote extends React.Component {
         this.setState((prevState) => ({ ...prevState, type: value }))
     }
 
-    // onAddNote = (book) => {
-    //     bookService.addBook(book).then(() => {
-    //         eventBusService.emit('user-msg',
-    //          { txt: `Book ${book.volumeInfo.title} was successfully added !`,
-    //          type: 'success',
-    //           link:`${book.id}`})
-    //         this.props.loadBooks()
-    //     })
-    // }
-
     render() {
+        const { loadNotes } = this.props
         const { type } = this.state
-        console.log(type)
         return (
-            <div>
-                <form className="note-add" >
-                    <label htmlFor="book-name">What's on your mind?:</label>
-                    <input
-                        type="text"
-                        id="note-add"
-                        name="note-add"
-                    />
-                </form>
+            <div className="note-add-main">What's on your mind?
                 <button value="text" onClick={this.handleChange}>Note</button>
                 <button value="img" onClick={this.handleChange}>Image</button>
                 <button value="todos" onClick={this.handleChange}>Todos</button>
                 <button value="video" onClick={this.handleChange}>Video</button>
-                <DynamicTodoAdd type={type} />
+                <DynamicTodoAdd loadNotes={loadNotes} type={type} />
             </div>)
     }
 }

@@ -26,7 +26,7 @@ export class NotesApp extends React.Component {
 		return (
 			<section className="note=App">
 			<h1>NotesApp</h1>
-				<AddNote/>
+				<AddNote loadNotes={this.loadNotes}/>
 				<NoteList notes ={notes}/>
 
 			</section>

@@ -3,10 +3,7 @@ import { ImgNote } from './note-img.jsx'
 import { TodosNote } from './note-todos.jsx'
 import { VideoNote } from './note-video.jsx'
 
-
-
-export function DynamicCmp({note}) {
-
+export function DynamicCmp({ note }) {
     switch (note.type) {
         case 'note-txt':
             return <TextNote note={note} />
