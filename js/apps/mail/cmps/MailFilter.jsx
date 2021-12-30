@@ -1,11 +1,10 @@
-//  Allow filtering
-// • Start with Search and Read / Unread
-
 export class MailFilter extends React.Component {
 	state = {
 		filterBy: {
 			searchVal: '',
 			isRead: 'all',
+			isStarred: null,
+			isDeleted: null,
 		},
 	};
 
@@ -23,7 +22,7 @@ export class MailFilter extends React.Component {
 	onSubmitFilter = (ev) => {
 		ev.preventDefault();
 		this.props.onSetFilter(this.state.filterBy);
-		// this.cleanForm();
+		this.cleanForm();
 	};
 
 	cleanForm = () => {
@@ -53,16 +52,6 @@ export class MailFilter extends React.Component {
 						<option value='read'>read</option>
 						<option value='unread'>unread</option>
 					</select>
-					{/* <label htmlFor='by-max-price'></label>
-					<input
-						placeholder='Enter maximum price'
-						type='number'
-						min='0'
-						id='by-max-price'
-						name='maxPrice'
-						value={maxPrice}
-						onChange={this.handleChange}
-					/> */}
 					<button>Filter</button>
 				</form>
 			</div>

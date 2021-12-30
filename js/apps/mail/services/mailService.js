@@ -49,6 +49,7 @@ function query(filterBy = null) {
 				to: 'momo@momo.com',
 				isOpen: false,
 				isDeleted: false,
+				isStarred: false,
 			},
 			{
 				id: utilService.makeId(),
@@ -61,6 +62,7 @@ function query(filterBy = null) {
 				to: 'arealemailaddress@gmail.com',
 				isOpen: false,
 				isDeleted: false,
+				isStarred: false,
 			},
 			{
 				id: utilService.makeId(),
@@ -73,6 +75,7 @@ function query(filterBy = null) {
 				to: 'user@appsus.com',
 				isOpen: false,
 				isDeleted: false,
+				isStarred: false,
 			},
 			{
 				id: utilService.makeId(),
@@ -85,6 +88,7 @@ function query(filterBy = null) {
 				to: 'fakeemail@appsus.com',
 				isOpen: false,
 				isDeleted: false,
+				isStarred: false,
 			},
 			{
 				id: utilService.makeId(),
@@ -97,6 +101,7 @@ function query(filterBy = null) {
 				to: 'user@appsus.com',
 				isOpen: false,
 				isDeleted: false,
+				isStarred: false,
 			},
 		];
 		_saveMailsToStorage(mails);
@@ -140,7 +145,7 @@ function deleteMail(mailId) {
 		return mailId === mail.id;
 	});
 	console.log(mail);
-	mails.splice(mail, 1);
+	if (mail.isDeleted) mails.splice(mail, 1);
 	_saveMailsToStorage(mails);
 }
 

@@ -69,7 +69,12 @@ export class MailApp extends React.Component {
 	};
 
 	onSetFilter = (filterBy) => {
+		console.log(filterBy);
 		this.setState({filterBy}, this.loadMails);
+	};
+
+	onCG = () => {
+		console.log('hi again');
 	};
 
 	render() {
@@ -83,6 +88,13 @@ export class MailApp extends React.Component {
 						onSetFilter={this.onSetFilter}
 					/>
 				}
+				<MailFolderList
+					className='mail-folder-list'
+					filterBy={this.state.filterBy}
+					onSetFilter={this.onSetFilter}
+					mails={mailsToShow}
+					onCG={this.onCG}
+				/>
 				<Switch>
 					<Route
 						component={() => <MailCompose loadMails={this.loadMails} />}
