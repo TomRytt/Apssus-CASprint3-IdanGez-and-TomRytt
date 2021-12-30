@@ -1,7 +1,7 @@
 // import {utilService} from '../../../services/util.service.js';
 import {LongText} from '../../../cmps/LongText.jsx';
 
-// const {Link} = ReactRouterDOM;
+const {Link} = ReactRouterDOM;
 
 export function MailPreview({mail, openMail, onDeleteMail}) {
 	return (
@@ -20,9 +20,11 @@ export function MailPreview({mail, openMail, onDeleteMail}) {
 				</header>
 			) : (
 				<article className='mail-body' onClick={() => openMail(mail.id)}>
-					<h2>{mail.subject}</h2>{' '}
+					<h2>{mail.subject}</h2>
 					<button onClick={() => onDeleteMail(mail.id)}>Trash</button>
-					<button>Expand</button>
+					<Link className={'clean-link'} to={`/mail/${mail.id}`}>
+						<button>Expand</button>
+					</Link>
 					<p>
 						<b>{mail.by} </b>
 						<span> {`<${mail.from}>`}</span>

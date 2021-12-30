@@ -144,7 +144,13 @@ function deleteMail(mailId) {
 	_saveMailsToStorage(mails);
 }
 
-function getMailById(mailId) {}
+function getMailById(mailId) {
+	const mails = _loadMailsFromStorage();
+	const mail = mails.find((mail) => {
+		return mail.id === mailId;
+	});
+	return Promise.resolve(mail);
+}
 
 function getNewMailId() {
 	return utilService.makeId();
@@ -154,11 +160,10 @@ function getNewMailId() {
 
 function _getFilteredMails(mails, filterBy) {
 	let {searchVal, isRead} = filterBy;
-	if (isRead === 'all') isRead = '';
-	else if (isRead === 'read') isRead = true;
+	if (isRead === 'read') isRead = true;
 	else if (isRead === 'unread') isRead = false;
 	return mails.filter((mail) => {
-		if (!isRead) return mail.subject.includes(searchVal);
+		if (isRead === 'all') return mails && mail.subject.includes(searchVal);
 		else if (!searchVal) return mail.isRead === isRead;
 		else if (!searchVal && !mail.isRead) return mails;
 		return mail.subject.includes(searchVal) && mail.isRead === isRead;

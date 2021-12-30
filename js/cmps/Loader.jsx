@@ -1,9 +1,7 @@
-
-
 export function Loader() {
-    return (
-        <div className="loader">
-            <img src="../assets/img/loader.svg" alt="" />
-        </div>
-    )
+	return (
+		<div className='loader'>
+			<img src='../assets/imgs/main/loader.svg' alt='' />
+		</div>
+	);
 }

@@ -16,6 +16,19 @@ export class MailCompose extends React.Component {
 		},
 	};
 
+	onSendMail = (ev) => {
+		ev.preventDefault();
+		const {mail} = this.state;
+		mailService.addMail(mail);
+		this.props.loadMails();
+		window.location.replace('/index.html#/mail');
+	};
+
+	onDiscardMail = (ev) => {
+		ev.preventDefault();
+		window.location.replace('/index.html#/mail');
+	};
+
 	handleChange = (event) => {
 		const target = event.target;
 		const field = target.name;
@@ -28,7 +41,7 @@ export class MailCompose extends React.Component {
 	render() {
 		return (
 			<div>
-				<Link className='go-back-container' to='/mail' />
+				<Link className='go-back-container' to='/mail/' />
 				<div className='compose-mail-container'>
 					<header>
 						<h1>New Message</h1>
@@ -54,13 +67,13 @@ export class MailCompose extends React.Component {
 							onChange={this.handleChange}></textarea>
 						<div className='compose-action-bar'>
 							<button
-								onClick={this.props.onSendMail}
+								onClick={this.onSendMail}
 								className='btn btn-primary send-mail-btn'>
 								Send
 							</button>
 							<button
 								className='btn trash-btn delete-composed-btn'
-								onClick={this.props.onDiscardMail}>
+								onClick={this.onDiscardMail}>
 								Delete
 							</button>
 						</div>

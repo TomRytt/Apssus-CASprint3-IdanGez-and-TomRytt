@@ -17,6 +17,7 @@
 
 /* Mail Pages */
 @import './apps/mail/pages/mail-app.css';
+@import './apps/mail/pages/mail-details.css';
 
 /* Mail CMPS */
 @import '../css/apps/mail/cmps/mail-preview.css';

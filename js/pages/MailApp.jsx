@@ -11,7 +11,7 @@ import {MailFolderList} from '../apps/mail/cmps/MailFolderList.jsx';
 import {MailList} from '../apps/mail/cmps/MailList.jsx';
 // import {MailPreview} from '../apps/mail/cmps/MailPreview.jsx';
 
-const {Route} = ReactRouterDOM;
+const {Route, Switch} = ReactRouterDOM;
 
 export class MailApp extends React.Component {
 	state = {
@@ -56,26 +56,12 @@ export class MailApp extends React.Component {
 
 	loadMails = () => {
 		const {filterBy} = this.state;
-		console.log(filterBy);
 		mailService.query(filterBy).then((mails) => {
 			mails.map((mail) => {
 				mail.isOpen = false;
 			});
 			this.setState({mails});
 		});
-	};
-
-	onSendMail = (ev) => {
-		ev.preventDefault();
-		const {mail} = this.state;
-		mailService.addMail(mail);
-		this.props.loadMails();
-		window.location.replace('/index.html#/mail');
-	};
-
-	onDiscardMail = (ev) => {
-		ev.preventDefault();
-		window.location.replace('/index.html#/mail');
 	};
 
 	onDeleteMail = (mailId) => {
@@ -97,17 +83,13 @@ export class MailApp extends React.Component {
 						onSetFilter={this.onSetFilter}
 					/>
 				}
-				{/* <Route component={MailCompose} path='/mail/composemail' /> */}
-				<Route
-					component={() => (
-						<MailCompose
-							loadMails={this.loadMails}
-							onDiscardMail={this.onDiscardMail}
-							onSendMail={this.onSendMail}
-						/>
-					)}
-					path='/mail/composemail'
-				/>
+				<Switch>
+					<Route
+						component={() => <MailCompose loadMails={this.loadMails} />}
+						path='/mail/composemail'
+					/>
+					<Route component={MailDetails} path='/mail/:mailId' />
+				</Switch>
 				<MailList
 					className='mail-list'
 					mails={mailsToShow}
