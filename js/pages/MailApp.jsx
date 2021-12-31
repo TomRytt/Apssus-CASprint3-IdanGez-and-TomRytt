@@ -38,12 +38,16 @@ export class MailApp extends React.Component {
 		this.setState({mails});
 	};
 
-	toggleMarked = (mailId) => {
+	toggleRead = (mailId) => {
 		const {mails} = this.state;
 		mails.map((mail) => {
 			if (mail.id === mailId) mail.isRead = !mail.isRead;
 		});
 		this.setState({mails});
+	};
+
+	onToggleStarred = (mailId) => {
+		mailService.toggleStarred(mailId).then(this.loadMails());
 	};
 
 	componentWillUnmount() {
@@ -69,12 +73,10 @@ export class MailApp extends React.Component {
 	};
 
 	onDeleteMail = (mail) => {
-		mailService.deleteMail(mail);
-		this.loadMails();
+		mailService.deleteMail(mail).then(this.loadMails());
 	};
 
 	onSetFilter = (filterBy) => {
-		// console.log(filterBy);
 		this.setState({filterBy}, this.loadMails);
 	};
 
@@ -106,7 +108,8 @@ export class MailApp extends React.Component {
 					mails={mailsToShow}
 					openMail={this.openMail}
 					onDeleteMail={this.onDeleteMail}
-					toggleMarked={this.toggleMarked}
+					toggleRead={this.toggleRead}
+					onToggleStarred={this.onToggleStarred}
 				/>
 			</section>
 		);

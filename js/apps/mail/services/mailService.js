@@ -20,6 +20,7 @@ export const mailService = {
 	deleteMail,
 	getMails,
 	saveMails,
+	toggleStarred,
 };
 
 const KEY = 'mailsDB';
@@ -336,6 +337,17 @@ function deleteMail(foundMail) {
 		mails.splice(foundMailIdx, 1);
 		_saveMailsToStorage(mails);
 	}
+	return Promise.resolve();
+}
+
+function toggleStarred(mailId) {
+	const mails = _loadMailsFromStorage();
+	let mail = mails.findIndex((mail) => {
+		return mail.id === mailId;
+	});
+	mails[mail].isStarred = !mails[mail].isStarred;
+	_saveMailsToStorage(mails);
+	return Promise.resolve();
 }
 
 function getMailById(mailId) {

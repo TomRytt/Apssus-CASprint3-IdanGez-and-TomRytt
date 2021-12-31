@@ -2,7 +2,13 @@
 
 import {MailPreview} from './MailPreview.jsx';
 
-export function MailList({mails, openMail, onDeleteMail, toggleMarked}) {
+export function MailList({
+	mails,
+	openMail,
+	onDeleteMail,
+	toggleRead,
+	onToggleStarred,
+}) {
 	return (
 		<section className='mail-list-container'>
 			{mails.map((mail) => (
@@ -11,7 +17,8 @@ export function MailList({mails, openMail, onDeleteMail, toggleMarked}) {
 					mail={mail}
 					openMail={() => openMail(mail.id)}
 					onDeleteMail={() => onDeleteMail(mail)}
-					toggleMarked={() => toggleMarked(mail.id)}
+					toggleRead={() => toggleRead(mail.id)}
+					onToggleStarred={() => onToggleStarred(mail.id)}
 				/>
 			))}
 		</section>

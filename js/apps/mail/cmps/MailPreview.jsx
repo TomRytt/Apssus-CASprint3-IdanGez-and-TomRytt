@@ -3,20 +3,31 @@ import {LongText} from '../../../cmps/LongText.jsx';
 
 const {Link} = ReactRouterDOM;
 
-export function MailPreview({mail, openMail, onDeleteMail, toggleMarked}) {
+export function MailPreview({
+	mail,
+	openMail,
+	onDeleteMail,
+	toggleRead,
+	onToggleStarred,
+}) {
 	return (
 		<article className='mail-preview'>
 			{!mail.isOpen ? (
 				<header
 					className={mail.isRead ? 'mail-preview-read' : 'mail-preview-unread'}>
+					<span
+						onClick={() => onToggleStarred(mail.id)}
+						className={`'star' + ${mail.isStarred ? 'on' : 'off'}`}>
+						&#9733;
+					</span>
 					<div onClick={() => openMail(mail.id)}>
 						<p className='mail-header-by'>{mail.by}</p>
 						<p>{mail.subject}</p>
-						<span>12:40</span>
+						<span>{mail.sentAt}</span>
 						<LongText text={mail.body} className='mail-header-preview' />
 					</div>
 					<span className='mail-hover-actions'>
-						<button onClick={() => toggleMarked(mail.id)}>Read/Unread</button>
+						<button onClick={() => toggleRead(mail.id)}>Read/Unread</button>
 						<button onClick={() => onDeleteMail(mail.id)}>Trash</button>
 					</span>
 				</header>

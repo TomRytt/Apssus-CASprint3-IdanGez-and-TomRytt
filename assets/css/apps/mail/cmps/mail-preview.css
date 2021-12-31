@@ -10,9 +10,23 @@
 	display: none;
 }
 
+.on {
+	color: gold;
+}
+.off {
+	color: #ccc;
+}
+
+/* Hover */
+
+.mail-preview:hover {
+	background-color: rgba(0, 0, 0, 0.164);
+}
+
+.mail-preview {
+	cursor: pointer;
+}
+
 .mail-preview:hover .mail-hover-actions {
 	display: block;
 }
-/* 
-.mail-hover-actions:hover {
-} */
