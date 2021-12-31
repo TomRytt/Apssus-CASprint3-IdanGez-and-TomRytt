@@ -20,7 +20,8 @@ export class MailApp extends React.Component {
 			status: null,
 			searchVal: '',
 			isRead: 'all',
-			isStarred: null,
+			isStarred: false,
+			isHovered: false,
 		},
 	};
 
@@ -31,28 +32,37 @@ export class MailApp extends React.Component {
 			if (mail.id === mailId) {
 				mail.isOpen = !mail.isOpen;
 				mail.isRead = true;
+				mail.isHovered = !mail.isHovered;
 			}
 		});
 		this.setState({mails});
 	};
 
+	toggleRead = (mailId) => {
+		const {mails} = this.state;
+		mails.map((mail) => {
+			if (mail.id === mailId) mail.isRead = !mail.isRead;
+		});
+		this.setState({mails});
+	};
+
+	onToggleStarred = (mailId) => {
+		mailService.toggleStarred(mailId).then(this.loadMails());
+	};
+
 	componentWillUnmount() {
 		const {mails} = this.state;
-		console.log(mails);
 		mails.map((mail) => {
 			mail.isOpen = false;
 		});
-		console.log(mails);
 		mailService.saveMails(mails);
 	}
 
 	componentDidMount() {
-		console.log('Im up');
 		this.loadMails();
 	}
 
 	loadMails = () => {
-		console.log('in load mails');
 		const {filterBy} = this.state;
 		mailService.query(filterBy).then((mails) => {
 			mails.map((mail) => {
@@ -63,11 +73,7 @@ export class MailApp extends React.Component {
 	};
 
 	onDeleteMail = (mail) => {
-		const mails = this.state;
-		console.log(mail);
-		mailService.deleteMail(mail);
-		this.setState({mails});
-		this.loadMails();
+		mailService.deleteMail(mail).then(this.loadMails());
 	};
 
 	onSetFilter = (filterBy) => {
@@ -102,6 +108,8 @@ export class MailApp extends React.Component {
 					mails={mailsToShow}
 					openMail={this.openMail}
 					onDeleteMail={this.onDeleteMail}
+					toggleRead={this.toggleRead}
+					onToggleStarred={this.onToggleStarred}
 				/>
 			</section>
 		);

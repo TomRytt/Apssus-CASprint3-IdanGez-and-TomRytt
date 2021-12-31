@@ -12,16 +12,28 @@ export class MailCompose extends React.Component {
 			body: '',
 			isRead: false,
 			isStarred: false,
-			isDeleted: false,
-			sentAt: Date.now(),
+			sentAt: '',
 			to: '',
 			isOpen: false,
+			isHovered: false,
 		},
+	};
+
+	getCurrTime = () => {
+		let currTime = new Date();
+		let month = currTime.toLocaleString('default', {month: 'long'});
+		let day = currTime.getDate();
+		let hours = currTime.getHours();
+		let minutes = currTime.getMinutes();
+		if (minutes < 10) minutes = '0' + minutes;
+		if (hours < 10) hours = '0' + hours;
+		return `Sent at:${month} ${day} ${hours}:${minutes} `;
 	};
 
 	onSendMail = (ev) => {
 		ev.preventDefault();
 		const {mail} = this.state;
+		mail.sentAt = this.getCurrTime();
 		mailService.addMail(mail);
 		this.props.loadMails();
 		window.location.replace('/index.html#/mail');

@@ -20,6 +20,7 @@ export const mailService = {
 	deleteMail,
 	getMails,
 	saveMails,
+	toggleStarred,
 };
 
 const KEY = 'mailsDB';
@@ -42,7 +43,7 @@ function query(filterBy = null) {
 			{
 				id: utilService.makeId(),
 				status: 'sent',
-				by: `User`, // Add Capitalization
+				by: `User`,
 				from: 'user@appsus.com',
 				subject: 'Care to join the dark side?',
 				body: 'We have Cookies',
@@ -51,24 +52,26 @@ function query(filterBy = null) {
 				to: 'momo@momo.com',
 				isOpen: false,
 				isStarred: false,
+				isHovered: false,
 			},
 			{
 				id: utilService.makeId(),
 				status: 'sent',
-				by: `User`, // Add Capitalization
+				by: `User`,
 				from: 'user@appsus.com',
 				subject: 'Lets code together',
 				body: 'we can make a local copy of Gmail',
-				isRead: true,
+				isRead: false,
 				sentAt: 1551133930594,
 				to: 'arealemailaddress@gmail.com',
 				isOpen: false,
-				isStarred: true,
+				isStarred: false,
+				isHovered: false,
 			},
 			{
 				id: utilService.makeId(),
 				status: 'inbox',
-				by: `Rick`, // Add Capitalization
+				by: `Rick`,
 				from: 'rickastley@apssus.com',
 				subject: 'Check out this cool React tutorial I found',
 				body: `https://www.youtube.com/watch?v=dQw4w9WgXcQ`,
@@ -77,19 +80,7 @@ function query(filterBy = null) {
 				to: 'user@appsus.com',
 				isOpen: false,
 				isStarred: false,
-			},
-			{
-				id: utilService.makeId(),
-				status: 'trash',
-				by: `User`, // Add Capitalization
-				from: 'user@appsus.com',
-				subject: 'Have you read what Lorem Ipsum means??',
-				body: utilService.makeLorem(35),
-				isRead: true,
-				sentAt: 1551133930594,
-				to: 'fakeemail@appsus.com',
-				isOpen: false,
-				isStarred: true,
+				isHovered: false,
 			},
 			{
 				id: utilService.makeId(),
@@ -103,6 +94,193 @@ function query(filterBy = null) {
 				to: 'user@appsus.com',
 				isOpen: false,
 				isStarred: false,
+				isHovered: false,
+			},
+
+			// starred
+			{
+				id: utilService.makeId(),
+				status: 'inbox',
+				by: `User`,
+				from: 'user@appsus.com',
+				subject: 'Have you read what Lorem Ipsum means??',
+				body: utilService.makeLorem(35),
+				isRead: false,
+				sentAt: 1551133930594,
+				to: 'fakeemail@appsus.com',
+				isOpen: false,
+				isStarred: true,
+				isHovered: false,
+			},
+			{
+				id: utilService.makeId(),
+				status: 'sent',
+				by: `User`,
+				from: 'user@appsus.com',
+				subject: 'Have you read what Lorem Ipsum means??',
+				body: utilService.makeLorem(35),
+				isRead: true,
+				sentAt: 1551133930594,
+				to: 'fakeemail@appsus.com',
+				isOpen: false,
+				isStarred: true,
+				isHovered: false,
+			},
+			{
+				id: utilService.makeId(),
+				status: 'inbox',
+				by: `User`,
+				from: 'user@appsus.com',
+				subject: 'Have you read what Lorem Ipsum means??',
+				body: utilService.makeLorem(35),
+				isRead: false,
+				sentAt: 1551133930594,
+				to: 'fakeemail@appsus.com',
+				isOpen: false,
+				isStarred: true,
+				isHovered: false,
+			},
+			{
+				id: utilService.makeId(),
+				status: 'sent',
+				by: `User`,
+				from: 'user@appsus.com',
+				subject: 'Have you read what Lorem Ipsum means??',
+				body: utilService.makeLorem(35),
+				isRead: false,
+				sentAt: 1551133930594,
+				to: 'fakeemail@appsus.com',
+				isOpen: false,
+				isStarred: true,
+				isHovered: false,
+			},
+			{
+				id: utilService.makeId(),
+				status: 'inbox',
+				by: `User`,
+				from: 'user@appsus.com',
+				subject: 'Have you read what Lorem Ipsum means??',
+				body: utilService.makeLorem(70),
+				isRead: true,
+				sentAt: 1551133930594,
+				to: 'fakeemail@appsus.com',
+				isOpen: false,
+				isStarred: true,
+				isHovered: false,
+			},
+			{
+				id: utilService.makeId(),
+				status: 'inbox',
+				by: `User`,
+				from: 'user@appsus.com',
+				subject: 'Have you read what Lorem Ipsum means??',
+				body: utilService.makeLorem(80),
+				isRead: true,
+				sentAt: 1551133930594,
+				to: 'fakeemail@appsus.com',
+				isOpen: false,
+				isStarred: true,
+				isHovered: false,
+			},
+			{
+				id: utilService.makeId(),
+				status: 'sent',
+				by: `User`,
+				from: 'user@appsus.com',
+				subject: 'Have you read what Lorem Ipsum means??',
+				body: utilService.makeLorem(60),
+				isRead: true,
+				sentAt: 1551133930594,
+				to: 'fakeemail@appsus.com',
+				isOpen: false,
+				isStarred: true,
+				isHovered: false,
+			},
+
+			// Trash
+			{
+				id: utilService.makeId(),
+				status: 'trash',
+				by: `User`,
+				from: 'user@appsus.com',
+				subject: 'Have you read what Lorem Ipsum means??',
+				body: utilService.makeLorem(35),
+				isRead: true,
+				sentAt: 1551133930594,
+				to: 'fakeemail@appsus.com',
+				isOpen: false,
+				isStarred: false,
+				isHovered: false,
+			},
+			{
+				id: utilService.makeId(),
+				status: 'trash',
+				by: `User`,
+				from: 'user@appsus.com',
+				subject: 'Have you read what Lorem Ipsum means??',
+				body: utilService.makeLorem(35),
+				isRead: true,
+				sentAt: 1551133930594,
+				to: 'fakeemail@appsus.com',
+				isOpen: false,
+				isStarred: false,
+				isHovered: false,
+			},
+			{
+				id: utilService.makeId(),
+				status: 'trash',
+				by: `Dean`,
+				from: 'fakeemail@appsus.com',
+				subject: 'Have you read what Lorem Ipsum means??',
+				body: utilService.makeLorem(35),
+				isRead: true,
+				sentAt: 1551133930594,
+				to: 'user@appsus.com',
+				isOpen: false,
+				isStarred: false,
+				isHovered: false,
+			},
+			{
+				id: utilService.makeId(),
+				status: 'trash',
+				by: `Inbar`,
+				from: 'fakeemail@appsus.com',
+				subject: 'How cool is demo-data???',
+				body: utilService.makeLorem(35),
+				isRead: true,
+				sentAt: 1551133930594,
+				to: 'user@appsus.com',
+				isOpen: false,
+				isStarred: false,
+				isHovered: false,
+			},
+			{
+				id: utilService.makeId(),
+				status: 'trash',
+				by: `User`,
+				from: 'user@appsus.com',
+				subject: 'How much demo data do you think we need??',
+				body: utilService.makeLorem(35),
+				isRead: true,
+				sentAt: 1551133930594,
+				to: 'fakeemail@appsus.com',
+				isOpen: false,
+				isStarred: false,
+				isHovered: false,
+			},
+			{
+				id: utilService.makeId(),
+				status: 'trash',
+				by: `Another fake user`,
+				from: 'fakeemail@appsus.com',
+				subject: 'Yes',
+				body: utilService.makeLorem(35),
+				isRead: true,
+				sentAt: 1551133930594,
+				to: 'user@appsus.com',
+				isOpen: false,
+				isStarred: false,
+				isHovered: false,
 			},
 		];
 		_saveMailsToStorage(mails);
@@ -127,6 +305,7 @@ function addMail(mail) {
 		to: mail.to,
 		isOpen: mail.isOpen,
 		isStarred: false,
+		isHovered: false,
 	};
 	const mails = _loadMailsFromStorage();
 	mails.unshift(newMail);
@@ -158,6 +337,17 @@ function deleteMail(foundMail) {
 		mails.splice(foundMailIdx, 1);
 		_saveMailsToStorage(mails);
 	}
+	return Promise.resolve();
+}
+
+function toggleStarred(mailId) {
+	const mails = _loadMailsFromStorage();
+	let mail = mails.findIndex((mail) => {
+		return mail.id === mailId;
+	});
+	mails[mail].isStarred = !mails[mail].isStarred;
+	_saveMailsToStorage(mails);
+	return Promise.resolve();
 }
 
 function getMailById(mailId) {

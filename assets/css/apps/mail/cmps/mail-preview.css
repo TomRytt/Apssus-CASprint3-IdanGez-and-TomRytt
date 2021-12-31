@@ -5,3 +5,28 @@
 .mail-preview-unread {
 	font-weight: bold;
 }
+
+.mail-hover-actions {
+	display: none;
+}
+
+.on {
+	color: gold;
+}
+.off {
+	color: #ccc;
+}
+
+/* Hover */
+
+.mail-preview:hover {
+	background-color: rgba(0, 0, 0, 0.164);
+}
+
+.mail-preview {
+	cursor: pointer;
+}
+
+.mail-preview:hover .mail-hover-actions {
+	display: block;
+}
