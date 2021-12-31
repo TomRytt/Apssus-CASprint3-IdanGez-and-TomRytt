@@ -5,7 +5,9 @@ export const noteService = {
 	addNewNote,
 	deleteNote,
 	duplicateNote,
-	editNote
+	// editNote,
+	pinnNote,
+	updateNote
 };
 
 const STORAGE_KEY = 'notesDB';
@@ -13,7 +15,7 @@ const gNotes = [
 	{
 		id: 'n101',
 		type: 'note-txt',
-		isPinned: true,
+		isPinned: false,
 		info: { txt: 'Fullstack Me Baby!' },
 		style: { backgroundColor: '#00d' },
 	},
@@ -43,16 +45,17 @@ const gNotes = [
 	{
 		id: 'n104',
 		type: 'note-video',
-		isPinned: true,
-		info: { url: 'https://www.youtube.com/embed/LHAgUebnlXI',
-				label: 'lobster video',
-			},
+		isPinned: false,
+		info: {
+			url: 'https://www.youtube.com/embed/LHAgUebnlXI',
+			label: 'lobster video',
+		},
 		style: { backgroundColor: '#00d' },
 	},
 	{
 		id: 'n105',
 		type: 'note-txt',
-		isPinned: true,
+		isPinned: false,
 		info: { txt: 'its a test!' },
 		style: { backgroundColor: '#00d' },
 	},
@@ -71,19 +74,19 @@ function query(filterBy = null) {
 
 function _getFilteredNotes(notes, filterBy) {
 	const { searchValue, searchType } = filterBy
-	let filteredNotes = null; 
+	let filteredNotes = null;
 	// filter types
-	if (searchType === 'all'){
+	if (searchType === 'all') {
 		filteredNotes = notes;
 	}
 	else {
-		filteredNotes = notes.filter(note => {if (searchType === note.type) return note})
+		filteredNotes = notes.filter(note => { if (searchType === note.type) return note })
 	}
-	if (searchValue === '') {return filteredNotes}
+	if (searchValue === '') { return filteredNotes }
 	return notes.filter(note => searchFilteredNotes(note, searchValue))
 }
 
-function checkIfIncludes(data, searchValue){
+function checkIfIncludes(data, searchValue) {
 	if (data.toLowerCase().includes(searchValue.toLowerCase())) return true;
 }
 
@@ -96,19 +99,19 @@ function searchFilteredNotes(note, searchValue) {
 	console.log(note.type)
 	if (note.info === null) return;
 	// check note txt
-	if (note.info.txt){
+	if (note.info.txt) {
 		// search txt
 		if (checkIfIncludes(note.info.txt, searchValue)) return note;
-	};  
+	};
 
 	// check label
-	if (note.info.label){
+	if (note.info.label) {
 		if (checkIfIncludes(note.info.label, searchValue)) return note;
 
 	}
 	// check Todos
 	if (note.info.todos) {
-		if (note.info.todos.filter(todo => {if (checkIfIncludes(todo.txt, searchValue)) return todo}).length > 0) {return note} 
+		if (note.info.todos.filter(todo => { if (checkIfIncludes(todo.txt, searchValue)) return todo }).length > 0) { return note }
 	}
 
 }
@@ -121,38 +124,41 @@ function addNewNote(input, type) {
 	return Promise.resolve();
 }
 
-function duplicateNote(id){
+function duplicateNote(id) {
 	const noteData = _getNoteById(id)
 	noteData.note.id = utilService.makeId()
 	const notes = _loadNotesFromStorage();
-	notes.splice(noteData.currIdx,0,noteData.note)
+	notes.splice(noteData.currIdx, 0, noteData.note)
 	_saveNotesToStorage(notes)
 }
 
-function editNote(editednote){
-	console.log(_loadNotesFromStorage());
-	console.log("trying to delete ", editednote)
-	deleteNote(editednote.id)
-	console.log(_loadNotesFromStorage());
-	addNewNote(editednote);
-	console.log(_loadNotesFromStorage());
+function updateNote(){
+console.log('hi')
 }
 
-function _getNoteById(noteId){
-	console.log('hi')
+// function editNote(editednote) {
+// 	console.log(_loadNotesFromStorage());
+// 	console.log("trying to delete ", editednote)
+// 	deleteNote(editednote.id)
+// 	console.log(_loadNotesFromStorage());
+// 	addNewNote(editednote);
+// 	console.log(_loadNotesFromStorage());
+// }
+
+function _getNoteById(noteId) {
 	const notes = _loadNotesFromStorage();
 	let currIdx;
-	let note = notes.find((note,idx) => {
+	let note = notes.find((note, idx) => {
 		if (noteId === note.id) {
 			currIdx = idx
 		}
 		return noteId === note.id
 	})
-	return ({note, currIdx})
+	return ({ note, currIdx })
 }
 
 function _createNewNote(input, type) {
-	console.log(input,type)
+	console.log(input, type)
 	switch (type) {
 		case 'note-txt':
 			return {
@@ -215,6 +221,24 @@ function deleteNote(noteId) {
 	_saveNotesToStorage(notes);
 	return Promise.resolve();
 }
+
+function pinnNote(noteId) {
+	let notes = _loadNotesFromStorage();
+	const { currIdx } = _getNoteById(noteId)
+	notes[currIdx].isPinned = !notes[currIdx].isPinned
+	let newNote = notes[currIdx]
+	if (newNote.isPinned) {
+		notes.splice(currIdx, 1)
+		notes.unshift(newNote)
+	} else {
+		notes.splice(currIdx, 1)
+		notes.push(newNote)
+	}
+	console.log(notes)
+	_saveNotesToStorage(notes)
+	return Promise.resolve();
+}
+
 
 function _saveNotesToStorage(notes) {
 	storageService.saveToStorage(STORAGE_KEY, notes);

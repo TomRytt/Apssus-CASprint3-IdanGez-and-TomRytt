@@ -24,6 +24,7 @@ export class NotePreview extends React.Component {
                     <button onClick={() => this.props.onDeleteNote(note.id)}>Delete Note</button>
                     <button onClick={() => this.props.onDuplicateNote(note.id)}>Duplicate</button>
                     <button onClick={() => this.props.onEditNote(note)}>Edit</button>
+                    <button onClick={() => this.props.onPinnNote(note.id)}>Pinn</button>
                     <ColorInput note={note} onChangeNoteColor={this.onChangeNoteColor} />
                 </section>
             )

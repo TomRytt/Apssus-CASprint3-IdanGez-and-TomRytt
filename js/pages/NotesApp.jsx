@@ -2,11 +2,15 @@ import { noteService } from '../apps/keep/services/note.service.js';
 import { NoteList } from '../apps/keep/cmps/note-list.jsx';
 import { AddNote } from '../apps/keep/cmps/AddNote.jsx';
 import { NoteFilter } from '../apps/keep/cmps/note-filter.jsx';
+import { NoteEdit } from '../apps/keep/cmps/NoteEdit.jsx';
+
+const { Route } = ReactRouterDOM;
 export class NotesApp extends React.Component {
 
 	state = {
 		notes: [],
 		filterBy: null,
+		noteUpdate: null,
 	};
 
 	componentDidMount() {
@@ -14,7 +18,7 @@ export class NotesApp extends React.Component {
 	}
 
 	loadNotes = () => {
-		const {filterBy} = this.state
+		const { filterBy } = this.state
 		noteService.query(filterBy).then((notes) => {
 			this.setState((prevState) => ({ ...prevState, notes }))
 		})
@@ -43,22 +47,31 @@ export class NotesApp extends React.Component {
 		this.loadNotes();
 	}
 
-	onEditNote = (id) => {
-		noteService.editNote(id);
-		this.loadNotes();
+	onEditNote = (note) => {
+		// ev.stopPropagation();
+		// noteService.editNote(id);
+
 		
+		// this.loadNotes();
+		window.location.replace(`/index.html#/notes:${note.id}`);
+	}
+
+	onPinnNote = (id) => {
+		noteService.pinnNote(id);
+		this.loadNotes();
 	}
 
 	render() {
 		const { notes } = this.state;
 		return (
 			<section className="note=App">
-				<h1>NotesApp</h1>
+				<h1>Keep App</h1>
 				<NoteFilter
 					className="note-filter"
 					filterBy={this.state.filterBy}
 					onSetFilter={this.onSetFilter}
 				/>
+				<Route component={() => <NoteEdit loadNotes={this.loadNotes} note={this.state.noteUpdate}/>} path='/notes:noteId' />
 				<AddNote
 					className="add-note-main"
 					loadNotes={this.loadNotes}
@@ -71,13 +84,11 @@ export class NotesApp extends React.Component {
 					onDeleteNote={this.onDeleteNote}
 					notes={notes}
 					onDuplicateNote={this.onDuplicateNote}
-					onEditNote={this.onEditNote} />
+					onEditNote={this.onEditNote}
+					onPinnNote={this.onPinnNote} />
 			</section>
 		)
 
 	}
 }
 
-
-// TODO -
-// 1. build all the crud function that will be sent forwards to the
