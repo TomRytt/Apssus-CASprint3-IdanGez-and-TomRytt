@@ -89,7 +89,6 @@ export class MailApp extends React.Component {
 					filterBy={this.state.filterBy}
 					onSetFilter={this.onSetFilter}
 				/>
-
 				<MailFolderList
 					className='mail-folder-list'
 					filterBy={this.state.filterBy}

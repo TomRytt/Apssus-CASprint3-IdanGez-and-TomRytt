@@ -1,0 +1,6 @@
+.mail-filter-container {
+	position: fixed;
+	top: 2vh;
+	left: 50vw;
+	transform: translateX(-50%);
+}

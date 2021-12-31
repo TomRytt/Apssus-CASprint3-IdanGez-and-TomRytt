@@ -12,32 +12,41 @@ export function MailPreview({
 }) {
 	return (
 		<article className='mail-preview'>
+			<span
+				onClick={() => onToggleStarred(mail.id)}
+				className={`'star' + ${mail.isStarred ? 'on' : 'off'}`}>
+				&#9733;
+			</span>
 			{!mail.isOpen ? (
-				<header
-					className={mail.isRead ? 'mail-preview-read' : 'mail-preview-unread'}>
-					<span
-						onClick={() => onToggleStarred(mail.id)}
-						className={`'star' + ${mail.isStarred ? 'on' : 'off'}`}>
-						&#9733;
-					</span>
-					<div onClick={() => openMail(mail.id)}>
-						<p className='mail-header-by'>{mail.by}</p>
-						<p>{mail.subject}</p>
-						<span>{mail.sentAt}</span>
-						<LongText text={mail.body} className='mail-header-preview' />
+				<header className={mail.isRead ? 'read' : 'unread'}>
+					<div className='mail-header-text' onClick={() => openMail(mail.id)}>
+						<span className='mail-header-by'>{mail.by}</span>
+						<span>{mail.subject}</span>
+						<LongText text={mail.body} className='mail-header-body' />
+						<span className='mail-sentat'>{mail.sentAt}</span>
 					</div>
 					<span className='mail-hover-actions'>
-						<button onClick={() => toggleRead(mail.id)}>Read/Unread</button>
-						<button onClick={() => onDeleteMail(mail.id)}>Trash</button>
+						<button
+							className={
+								mail.isRead ? 'far fa-envelope' : 'far fa-envelope-open'
+							}
+							onClick={() => toggleRead(mail.id)}></button>
+						<button
+							className='fas fa-trash'
+							onClick={() => onDeleteMail(mail.id)}></button>
 					</span>
 				</header>
 			) : (
 				<article className='mail-body' onClick={() => openMail(mail.id)}>
 					<h2>{mail.subject}</h2>
-					<button onClick={() => onDeleteMail(mail.id)}>Trash</button>
-					<Link className={'clean-link'} to={`/mail/${mail.id}`}>
-						<button>Expand</button>
-					</Link>
+					<span className='mail-hover-actions'>
+						<button
+							className='fas fa-trash'
+							onClick={() => onDeleteMail(mail.id)}></button>
+						<Link className={'clean-link'} to={`/mail/${mail.id}`}>
+							<button className='fas fa-expand'></button>
+						</Link>
+					</span>
 					<p>
 						<b>{mail.by} </b>
 						<span> {`<${mail.from}>`}</span>

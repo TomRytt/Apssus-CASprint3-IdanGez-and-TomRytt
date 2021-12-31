@@ -27,7 +27,7 @@ export class MailCompose extends React.Component {
 		let minutes = currTime.getMinutes();
 		if (minutes < 10) minutes = '0' + minutes;
 		if (hours < 10) hours = '0' + hours;
-		return `Sent at:${month} ${day} ${hours}:${minutes} `;
+		return `Sent at:    ${month} ${day} ${hours}:${minutes} `;
 	};
 
 	onSendMail = (ev) => {

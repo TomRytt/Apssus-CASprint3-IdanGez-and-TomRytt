@@ -13,13 +13,31 @@ export function MailFolderList({mails, onSetFilter}) {
 	return (
 		<div className='mail-folder-list-container'>
 			<Link className='primary-btn clean-link' to='/mail/composemail'>
-				<button>Compose Mail</button>
+				<button className='btn mail-folder-list-compose-btn'>
+					Compose Mail
+				</button>
 			</Link>
-			<button onClick={() => onSetFilter({status: 'inbox'})}>Inbox</button>
-			<button onClick={() => onSetFilter({isStarred: 'true'})}>Starred</button>
-			<button onClick={() => onSetFilter({status: 'sent'})}>Sent Mail</button>
-			<button onClick={() => onSetFilter({status: 'trash'})}>Deleted</button>
-			<button onClick={() => onSetFilter({status: 'draft'})}>Draft</button>
+			<span
+				className=' mail-folder-list-fa fas fa-inbox'
+				onClick={() => onSetFilter({status: 'inbox'})}>
+				<span>Inbox</span>
+			</span>
+			<span
+				className='fas fa-star mail-folder-list-fa'
+				onClick={() => onSetFilter({isStarred: 'true'})}>
+				<span>Starred</span>
+			</span>
+			<span
+				className=' mail-folder-list-fa fas fa-paper-plane'
+				onClick={() => onSetFilter({status: 'sent'})}>
+				<span>Sent</span>
+			</span>
+			<button
+				className='btn mail-folder-list-btn'
+				onClick={() => onSetFilter({status: 'trash'})}>
+				Deleted
+			</button>
+			{/* <button onClick={() => onSetFilter({status: 'draft'})}>Draft</button> */}
 			<label>
 				<meter
 					className='unread-meter'

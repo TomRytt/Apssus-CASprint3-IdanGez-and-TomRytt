@@ -1,8 +1,11 @@
 * {
-    box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 body {
-    background-color: rgb(126, 177, 126);
-    margin: 0;
+	margin: 0;
+}
+
+p {
+	margin: 0;
 }

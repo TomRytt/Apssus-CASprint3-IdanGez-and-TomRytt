@@ -365,6 +365,7 @@ function getNewMailId() {
 // Private Funcs
 
 function _getFilteredMails(mails, filterBy) {
+	console.log(filterBy);
 	let {status, searchVal, isRead, isStarred} = filterBy;
 	if (isRead === 'read') isRead = true;
 	else if (isRead === 'unread') isRead = false;
