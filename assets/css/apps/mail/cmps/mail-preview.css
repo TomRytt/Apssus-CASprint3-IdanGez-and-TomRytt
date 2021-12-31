@@ -5,3 +5,14 @@
 .mail-preview-unread {
 	font-weight: bold;
 }
+
+.mail-hover-actions {
+	display: none;
+}
+
+.mail-preview:hover .mail-hover-actions {
+	display: block;
+}
+/* 
+.mail-hover-actions:hover {
+} */

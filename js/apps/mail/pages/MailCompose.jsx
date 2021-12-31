@@ -12,10 +12,10 @@ export class MailCompose extends React.Component {
 			body: '',
 			isRead: false,
 			isStarred: false,
-			isDeleted: false,
 			sentAt: Date.now(),
 			to: '',
 			isOpen: false,
+			isHovered: false,
 		},
 	};
 

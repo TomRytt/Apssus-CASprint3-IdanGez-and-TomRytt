@@ -1,0 +1,4 @@
+meter.unread-meter {
+	text-align: center;
+	content: attr(value);
+}

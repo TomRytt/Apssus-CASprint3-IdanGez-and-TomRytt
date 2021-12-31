@@ -30,3 +30,5 @@ export function MailFolderList({mails, onSetFilter}) {
 		</div>
 	);
 }
+
+// Fix the number in the draft

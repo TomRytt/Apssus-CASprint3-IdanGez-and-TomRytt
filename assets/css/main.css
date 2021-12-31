@@ -22,9 +22,9 @@
 /* Mail CMPS */
 @import '../css/apps/mail/cmps/mail-preview.css';
 @import '../css/apps/mail/cmps/mail-compose.css';
+@import '../css/apps/mail/cmps/mail-folder.list.css';
 
 /* KEEP */
-
 @import './apps/keep/note-preview.css';
 @import './apps/keep/todos-note.css';
 @import './apps/keep/color-input.css';
