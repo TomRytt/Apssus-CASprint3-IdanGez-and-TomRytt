@@ -1,13 +1,55 @@
-.mail-preview-read {
+.mail-preview {
+	width: 60vw;
+	border: 1px solid black;
+	display: flex;
+	justify-content: flex-start;
+}
+
+.mail-preview p {
+	width: fit-content;
+}
+
+.mail-preview header {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: nowrap;
+	height: 4rem;
+}
+
+.mail-header-text {
+	width: 90%;
+}
+
+.mail-prevew.mail-sentat {
+	display: flex;
+	justify-self: flex-end;
+}
+
+.mail-preview header span {
+	margin-left: 30px;
+}
+
+.mail-preview header span.more {
+	margin: 0;
+}
+
+.mail-preview header.read {
 	font-weight: normal;
 }
 
-.mail-preview-unread {
+.mail-preview header.unread {
 	font-weight: bold;
 }
 
 .mail-hover-actions {
 	display: none;
+	position: relative;
+	justify-self: flex-end;
+	height: 50%;
+	/* left: 80%; */
+	/* bottom: 70%; */
 }
 
 .on {
@@ -28,5 +70,6 @@
 }
 
 .mail-preview:hover .mail-hover-actions {
-	display: block;
+	display: flex;
+	justify-self: flex-end;
 }

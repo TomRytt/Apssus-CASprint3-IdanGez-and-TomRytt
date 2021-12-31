@@ -37,14 +37,14 @@ export class LongText extends React.Component {
 
 	render() {
 		return (
-			<p>
+			<span>
 				{this.state.text}
-				{this.props.text.length > 100 && (
+				{this.props.text.length > 50 && (
 					<span className='more' onClick={this.showLongTxt}>
-						<span> </span>...
+						...
 					</span>
 				)}
-			</p>
+			</span>
 		);
 	}
 }

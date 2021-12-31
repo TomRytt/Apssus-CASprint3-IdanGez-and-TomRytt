@@ -1,4 +1,30 @@
+.mail-folder-list-container {
+	display: flex;
+	flex-direction: column;
+	height: 60vh;
+	width: 30vw;
+	justify-content: space-between;
+}
+
+meter::-webkit-meter-optimum-value {
+	background: rgba(0, 0, 255, 0.473);
+}
+
 meter.unread-meter {
 	text-align: center;
 	content: attr(value);
+	margin-left: 50%;
+	transform: translateX(-50%);
+	height: 100px;
+	width: 50%;
+}
+
+.mail-folder-list-fa {
+	width: 50%;
+	margin-left: 50%;
+	transform: translateX(-50%);
+}
+
+button.btn.mail-folder-list-btn:first-child {
+	margin-top: 10%;
 }

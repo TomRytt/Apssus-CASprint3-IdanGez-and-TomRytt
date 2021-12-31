@@ -1,0 +1,28 @@
+/* @import url(); */
+
+@font-face {
+	font-family: far;
+	src: url('../../fonts/fa/webfonts/fa-regular-400.ttf');
+}
+
+@font-face {
+	font-family: fab;
+	src: url('../../fonts/ffa/webfonts/fa-brands-400.ttf');
+}
+
+@font-face {
+	font-family: fas;
+	src: url('../../fonts/fa/css/fa-solid-900.ttf');
+}
+
+.fas {
+	font-family: 'fas';
+}
+
+.fab {
+	font-family: 'fab';
+}
+
+.far {
+	font-family: 'far';
+}
