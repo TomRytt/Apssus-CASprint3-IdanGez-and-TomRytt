@@ -22,10 +22,11 @@ export class NotesApp extends React.Component {
 
 	onSetFilter = (filterBy) => {
 		this.setState({ filterBy }, this.loadNotes)
-		console.log('onsetfilter', filterBy)
+		// console.log('onsetfilter', filterBy)
 	}
 
 	onAddNote = (input, type) => {
+		console.log(input, type)
 		noteService.addNewNote(input, type).then(() => {
 			this.loadNotes();
 		})
@@ -35,6 +36,17 @@ export class NotesApp extends React.Component {
 		noteService.deleteNote(noteId).then(() => {
 			this.loadNotes()
 		})
+	}
+
+	onDuplicateNote = (id) => {
+		noteService.duplicateNote(id);
+		this.loadNotes();
+	}
+
+	onEditNote = (id) => {
+		noteService.editNote(id);
+		this.loadNotes();
+		
 	}
 
 	render() {
@@ -57,7 +69,9 @@ export class NotesApp extends React.Component {
 				<NoteList
 					loadNotes={this.loadNotes}
 					onDeleteNote={this.onDeleteNote}
-					notes={notes} />
+					notes={notes}
+					onDuplicateNote={this.onDuplicateNote}
+					onEditNote={this.onEditNote} />
 			</section>
 		)
 

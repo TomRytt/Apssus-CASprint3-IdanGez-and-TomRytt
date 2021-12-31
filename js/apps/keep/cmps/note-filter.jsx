@@ -3,20 +3,19 @@ export class NoteFilter extends React.Component {
   state = {
     filterBy: {
       searchValue: '',
-      searchType: '',
+      searchType: 'all',
     },
   };
 
   handleChange = ({ target }) => {
     const field = target.name;
     const value = (target.type === 'number') ? +target.value : target.value;
-    this.setState((prevState) => ({ filterBy: { ...prevState.filterBy, [field]: value } }), () => {
-      this.props.onSetFilter(this.state.filterBy)
-    });
+    this.setState(
+      (prevState) => ({ filterBy: { ...prevState.filterBy, [field]: value } }), () => {
+        this.props.onSetFilter(this.state.filterBy)
+      });
   }
-
   onSubmitFilter = (ev) => {
-    console.log('hi')
     ev.preventDefault();
     this.props.onSetFilter(this.state.filterBy);
     this.cleanFrom();
@@ -46,6 +45,7 @@ export class NoteFilter extends React.Component {
             id="noteType"
             onChange={this.handleChange}
             value={searchType}>
+            <option value="all">All Notes</option>
             <option value="note-txt">Text Notes</option>
             <option value="note-todos">Todo Notes</option>
             <option value="note-video">Video Notes</option>

@@ -1,21 +1,27 @@
 export class VideoNoteAdd extends React.Component {
 
     state = {
-        url: '',
+        video: {
+            url: '',
+            title: '',
+        },
         type: 'note-video'
     }
 
-    handleChange = ({ target }) => {
+    handleChange = (event) => {
+        const target = event.target;
+        const field = target.name;
         const value = target.type === 'number' ? +target.value : target.value;
-        this.setState((prevState) => ({ ...prevState, url: value }));
+        this.setState((prevState) => ({
+            video: { ...prevState.video, [field]: value },
+        }));
     };
 
     onSubmit = (ev) => {
         ev.preventDefault();
-        const { url, type } = this.state;
-        this.props.onAddNote(url, type)
-        this.setState({ url: '' });
-
+        const { video, type } = this.state;
+        this.props.onAddNote(video, type)
+        this.setState({ url: '', title: '', });
 
     };
 
@@ -32,6 +38,14 @@ export class VideoNoteAdd extends React.Component {
                         id="note-video-add"
                         name="url"
                         value={url}
+                    />
+                    <label htmlFor="note-video-title">Title</label>
+                    <input
+                        type="text"
+                        onChange={this.handleChange}
+                        id="note-video-title"
+                        name="title"
+                        value={title}
                     />
                     <button>Add Video</button>
                 </form>

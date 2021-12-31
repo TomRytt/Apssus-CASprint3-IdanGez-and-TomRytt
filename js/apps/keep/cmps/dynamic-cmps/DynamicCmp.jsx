@@ -1,7 +1,8 @@
 // import { ColorInput } from 'ץ./ColorInput.jsx'
 
 export function DynamicCmp({ note, noteColor }) {
-
+    // console.log(note.type)
+    if (!note.type) return <React.Fragment></React.Fragment>
     switch (note.type) {
         case 'note-txt':
             return (
@@ -33,8 +34,8 @@ export function DynamicCmp({ note, noteColor }) {
         case 'note-video':
             return (
                 <div className="video-note"
-                    style={{ backgroundColor: noteColor }}
-                >
+                    style={{ backgroundColor: noteColor }}>
+                    <div className="video-note-title">{note.info.title}</div>
                     <iframe width="420" height="315"
                         src={note.info.url}>
                     </iframe>

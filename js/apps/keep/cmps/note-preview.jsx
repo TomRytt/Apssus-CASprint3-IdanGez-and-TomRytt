@@ -11,19 +11,20 @@ export class NotePreview extends React.Component {
 
     render() {
         const { noteColor } = this.state
-        const { loadNotes, onDeleteNote, note } = this.props
+        const { loadNotes, note } = this.props
         if (!note) return <div> loading</div>
         else {
             return (
                 <section
                     className="note-preview">
                     <DynamicCmp loadNotes={loadNotes}
-                        onDeleteNote={onDeleteNote}
                         note={note}
                         noteColor={noteColor}
                     />
                     <button onClick={() => this.props.onDeleteNote(note.id)}>Delete Note</button>
-                    <ColorInput  note={note} onChangeNoteColor={this.onChangeNoteColor} />
+                    <button onClick={() => this.props.onDuplicateNote(note.id)}>Duplicate</button>
+                    <button onClick={() => this.props.onEditNote(note)}>Edit</button>
+                    <ColorInput note={note} onChangeNoteColor={this.onChangeNoteColor} />
                 </section>
             )
         }

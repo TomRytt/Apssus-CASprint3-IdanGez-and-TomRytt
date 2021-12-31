@@ -4,6 +4,8 @@ import { TodoNoteAdd } from './TodoNoteAdd.jsx'
 import { VideoNoteAdd } from './VideoNoteAdd.jsx'
 
 export function DynamicTodoAdd({ type, onAddNote }) {
+    // console.log('hi')
+    // console.log(type)
     switch (type) {
         case 'text':
             return <TextNoteAdd

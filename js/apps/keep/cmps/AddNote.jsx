@@ -4,7 +4,7 @@ import { DynamicTodoAdd } from './dynamic-cmps/dynamicTodoAdd.jsx'
 export class AddNote extends React.Component {
 
     state = {
-        type: 'text'
+        type: ''
     }
 
     handleChange = (ev) => {

@@ -14,7 +14,7 @@ export class TextNoteAdd extends React.Component {
     onSubmitNote = (ev) => {
         ev.preventDefault();
         const { input, type } = this.state;
-        // console.log(input, type)
+        console.log(input, type)
         this.props.onAddNote(input, type)
         this.setState({ input: '' });
     };

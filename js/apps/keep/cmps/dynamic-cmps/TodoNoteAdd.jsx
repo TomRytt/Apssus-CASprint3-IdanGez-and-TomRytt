@@ -4,7 +4,7 @@ export class TodoNoteAdd extends React.Component {
     state = {
         todo: {
             list: '',
-            lable: ''
+            label: ''
         },
         type: 'note-todos'
     }
@@ -23,22 +23,22 @@ export class TodoNoteAdd extends React.Component {
         ev.preventDefault();
         const { todo, type } = this.state;
         this.props.onAddNote(todo, type)
-        this.setState({ list: '', lable:'' });
+        this.setState({ list: '', label:'' });
 
     };
 
     render() {
-        const { list, lable } = this.state;
+        const { list, label } = this.state;
         return (
             <div>
                 <form onSubmit={this.onSubmit} action=''>
-                    <label htmlFor="note-todo-label-add">Lable</label>
+                    <label htmlFor="note-todo-label-add">label</label>
                     <input
                         type="text"
                         onChange={this.handleChange}
                         id="note-list-label-add"
-                        name="lable"
-                        value={lable}
+                        name="label"
+                        value={label}
 
                     />
                     <label htmlFor="note-todo-list-add">Enter coma seperated list</label>
