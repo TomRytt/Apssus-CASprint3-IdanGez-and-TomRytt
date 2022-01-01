@@ -49,13 +49,13 @@ button.btn.mail-folder-list-btn:first-child {
 }
 
 span.mail-folder-list-fa {
+	margin-left: 10%;
 	color: rgb(87 87 147 / 47%);
 	font-size: 2rem;
 	background-color: inherit;
 	padding-inline-start: 10px;
 	height: 60px;
 	border-radius: 15px;
-	/* width: 250px; */
 	padding-top: 10px;
 	cursor: pointer;
 }

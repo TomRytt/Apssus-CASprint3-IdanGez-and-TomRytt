@@ -1,12 +1,3 @@
-// The emailService query function should get a criteria(filterBy) object, here is an idea:
-// const criteria = {
-//  status: 'inbox/sent/trash/draft',
-//  txt: 'puki', // no need to support complex text search
-//  isRead: true, // (optional property, if missing: show all)
-//  isStared: true, // (optional property, if missing: show all)
-//  lables: ['important', 'romantic'] // has any of the labels
-// }
-
 import {storageService} from '../../../services/storage.service.js';
 
 import {utilService} from '../../../services/util.service.js';
@@ -34,11 +25,9 @@ function getLoggedinUser() {
 	return loggedinUser;
 }
 
-// Increase the demo-data by 3-fold
 function query(filterBy = null) {
 	let mails = _loadMailsFromStorage();
 	if (!mails || !mails.length) {
-		console.log('from json');
 		mails = [
 			{
 				id: utilService.makeId(),
@@ -90,7 +79,7 @@ function query(filterBy = null) {
 				subject: 'Check out my Lorems',
 				body: utilService.makeLorem(70),
 				isRead: false,
-				sentAt: 1551133930594,
+				sentAt: 'December 03 12:45',
 				to: 'user@appsus.com',
 				isOpen: false,
 				isStarred: false,
@@ -322,7 +311,6 @@ function getMails() {
 }
 
 function deleteMail(foundMail) {
-	console.log(foundMail);
 	const mails = _loadMailsFromStorage();
 	let foundMailIdx = mails.findIndex((mail) => {
 		return foundMail.id === mail.id;
@@ -332,7 +320,6 @@ function deleteMail(foundMail) {
 		mails[foundMailIdx].isStarred = false;
 		mails[foundMailIdx].isRead = false;
 		_saveMailsToStorage(mails);
-		console.log(mails);
 	} else if (foundMail.status === 'trash') {
 		mails.splice(foundMailIdx, 1);
 		_saveMailsToStorage(mails);

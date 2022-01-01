@@ -4,7 +4,8 @@ class _AppHeader extends React.Component {
 		return (
 			<header className='app-header'>
 				<div className='header-container'>
-					<h1 onClick={() => this.props.history.push('/')}>Appssus</h1>
+					<h1 onClick={() => this.props.history.push('/')}>Appssus 🦄</h1>
+
 					<nav className='app-nav'>
 						<NavLink activeClassName='my-active' exact to='/'>
 							Home

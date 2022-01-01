@@ -35,25 +35,24 @@ export class MailDetails extends React.Component {
 				<article className='mail-details-container'>
 					<header className='mail-details-header'>
 						<h1>{mail.subject}</h1>
-						<b>{mail.by}</b>
-						<span>{mail.from}</span>
+						<div>
+							<span className='mail-sender-span'>
+								<b>{mail.by}</b>
+								<span className='mail-from-span'>{mail.from}</span>
+							</span>
+						</div>
 						<nav className='mail-details-nav'>
 							<Link to='/mail'>
-								<button className='btn shrink-btn mail-detaiils-btn'>
-									Shrink
-								</button>
+								<i className='btn fas fa-compress mail-detaiils-btn'></i>
 							</Link>
-							<button className='btn send-to-keep-btn mail-detaiils-btn'>
-								Keep
-							</button>
-							<button className='btn trash-btn mail-detaiils-btn'>Trash</button>
+							<i className='btn fas fa-paper-plane send-to-keep-btn mail-detaiils-btn'></i>
+							<i className='btn fas fa-trash mail-detaiils-btn'></i>
 						</nav>
 					</header>
 					<div className='mail-details-body'>
 						<p>{mail.body}</p>
 					</div>
 				</article>
-				;
 			</div>
 		);
 	}
