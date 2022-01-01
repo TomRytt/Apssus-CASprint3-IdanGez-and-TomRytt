@@ -26,7 +26,7 @@ const gNotes = [
 		isPinned: false,
 		info: {
 			url: 'https://images.unsplash.com/photo-1599302592205-d7d683c83eea?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dHJvcGljYWwlMjBzdW5zZXR8ZW58MHx8MHx8&w=1000&q=80',
-			label: 'Bobi and Me',
+			label: 'Sunset in malibu',
 		},
 		style: {backgroundColor: '#00d'},
 	},
@@ -35,7 +35,7 @@ const gNotes = [
 		type: 'note-todos',
 		isPinned: false,
 		info: {
-			label: 'Get my stuff together',
+			label: 'Get my stuff together:',
 			todos: [
 				{txt: 'Driving liscence', doneAt: null},
 				{txt: 'Coding power', doneAt: 187111111},
@@ -57,7 +57,150 @@ const gNotes = [
 		id: 'n105',
 		type: 'note-txt',
 		isPinned: false,
-		info: {txt: 'its a test!'},
+		info: {txt: 'Left is right, right is wrong '},
+		style: {backgroundColor: '#00d'},
+	},
+	{
+		id: 'n106',
+		type: 'note-txt',
+		isPinned: false,
+		info: { txt: 'If you bow at all, bow low' },
+		style: { backgroundColor: '#b7ebff' },
+	},
+	{
+		id: 'n107',
+		type: 'note-todos',
+		isPinned: false,
+		info: {
+			label: 'Note App todos:',
+			todos: [
+				{txt: 'Allow creating, updating and deleting notes', doneAt: null},
+				{txt: `Support setting the note's background color and other styles`, doneAt: 187111111},
+			],
+		},
+		style: {backgroundColor: '#00d'},
+	},
+	{
+		id: 'n108',
+		type: 'note-video',
+		isPinned: false,
+		info: {
+			url: 'https://www.youtube.com/embed/hQAHSlTtcmY',
+			label: 'React 101',
+		},
+		style: {backgroundColor: '#00d'},
+	},
+	{
+		id: 'n109',
+		type: 'note-txt',
+		isPinned: false,
+		info: {txt: 'A man who cannot tolerate small misfortunes can never accomplish great things'},
+		style: {backgroundColor: '#00d'},
+	},
+	{
+		id: 'n110',
+		type: 'note-txt',
+		isPinned: false,
+		info: { txt: 'A needle is not sharp at both ends' },
+		style: { backgroundColor: '#b7ebff' },
+	},
+	{
+		id: 'n111',
+		type: 'note-img',
+		isPinned: false,
+		info: {
+			url: 'https://www.enjpg.com/img/2020/outer-space-background-3-500x313.jpg',
+			label: 'Space',
+		},
+		style: {backgroundColor: '#00d'},
+	},
+	{
+		id: 'n112',
+		type: 'note-todos',
+		isPinned: false,
+		info: {
+			label: 'Vacation:',
+			todos: [
+				{txt: 'Sunglasses', doneAt: null},
+				{txt: 'Book', doneAt: 187111111},
+				{txt: 'Beer', doneAt: 187111111},
+				{txt: 'Towel', doneAt: 187111111},
+			],
+		},
+		style: {backgroundColor: '#00d'},
+	},
+	{
+		id: 'n113',
+		type: 'note-video',
+		isPinned: false,
+		info: {
+			url: 'https://www.youtube.com/embed/vIALhyb7V-Y',
+			label: 'קודינג אקדמי - המלצות בוגרים',
+		},
+		style: {backgroundColor: '#00d'},
+	},
+	{
+		id: 'n114',
+		type: 'note-txt',
+		isPinned: false,
+		info: {txt: 'The best time to plant a tree was 20 years ago. The second best time is today.'},
+		style: {backgroundColor: '#00d'},
+	},
+	{
+		id: 'n115',
+		type: 'note-txt',
+		isPinned: false,
+		info: { txt: 'Two good talkers are not worth one good listener' },
+		style: { backgroundColor: '#b7ebff' },
+	},
+	{
+		id: 'n116',
+		type: 'note-img',
+		isPinned: false,
+		info: {
+			url: 'https://images1.calcalist.co.il/picserver3/crop_images/2021/12/22/SJR0dslsY/SJR0dslsY_0_0_640_640_0_x-large.jpg',
+			label: 'טונה: מזרח פרוע',
+		},
+		style: {backgroundColor: '#00d'},
+	},
+	{
+		id: 'n117',
+		type: 'note-todos',
+		isPinned: false,
+		info: {
+			label: 'Before i got to sleep:',
+			todos: [
+				{txt: 'Brush my teeth', doneAt: null},
+				{txt: 'kiss mommy and daddy ', doneAt: 187111111},
+			],
+		},
+		style: {backgroundColor: '#00d'},
+	},
+	{
+		id: 'n118',
+		type: 'note-video',
+		isPinned: false,
+		info: {
+			url: 'https://www.youtube.com/embed/bLdjQJUY0VM',
+			label: 'Ravid Plotnik - KuKuRiKu',
+		},
+		style: {backgroundColor: '#00d'},
+	},
+	{
+		id: 'n119',
+		type: 'note-txt',
+		isPinned: false,
+		info: {txt: 'Cringe: When someone acts/ or is so embarrassing or awkward , it makes you feel extemely ashamed and/or embarrassed'},
+		style: {backgroundColor: '#00d'},
+	},
+	{
+		id: 'n120',
+		type: 'note-img',
+		isPinned: false,
+		info: {
+			url: 'https://scontent.ftlv5-1.fna.fbcdn.net/v/t1.6435-9/93916346_10216774351047288_6718001198009417728_n.jpg?_nc_cat=106&ccb=1-5&_nc_sid=730e14&_nc_ohc=mwyon6giEMUAX_vRvOM&_nc_ht=scontent.ftlv5-1.fna&oh=00_AT-OIbiRBD6xaFhIob9_h3eApYquf7DYAFK2lcJ_bnn2vA&oe=61F472C6',
+			label: 'How i feel about zoom studies',
+		},
 		style: {backgroundColor: '#00d'},
 	},
 ];

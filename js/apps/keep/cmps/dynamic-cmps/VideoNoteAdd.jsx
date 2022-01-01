@@ -31,7 +31,7 @@ export class VideoNoteAdd extends React.Component {
         return (
             <div>
                 <form onSubmit={this.onSubmit} action=''>
-                    <label htmlFor="note-video-add">Enter Video URL</label>
+                    <label htmlFor="note-video-add">Enter Video URL:</label>
                     <input
                         type="text"
                         onChange={this.handleChange}
@@ -39,7 +39,7 @@ export class VideoNoteAdd extends React.Component {
                         name="url"
                         value={url}
                     />
-                    <label htmlFor="note-video-label">label</label>
+                    <label htmlFor="note-video-label">Label:</label>
                     <input
                         type="text"
                         onChange={this.handleChange}
@@ -47,7 +47,7 @@ export class VideoNoteAdd extends React.Component {
                         name="label"
                         value={label}
                     />
-                    <button>Add Video</button>
+                   <button className="note-add-button">Add Note</button>
                 </form>
             </div>
         )

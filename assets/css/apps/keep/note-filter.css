@@ -11,7 +11,7 @@
     font-size: 20px;
     align-items: center;
     width: 40%;
-    justify-content: space-between;
+    justify-content: space-around;
     gap: 15px;
 }
 
@@ -24,7 +24,7 @@
 }
 
 .note-filter-select {
-    width: 250px;
+    width: 150px;
     height: 40px;
     border: none;
     border-radius: 5px;

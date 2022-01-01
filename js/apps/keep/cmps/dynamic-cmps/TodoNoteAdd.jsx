@@ -23,7 +23,7 @@ export class TodoNoteAdd extends React.Component {
         ev.preventDefault();
         const { todo, type } = this.state;
         this.props.onAddNote(todo, type)
-        this.setState({ list: '', label:'' });
+        this.setState({ list: '', label: '' });
 
     };
 
@@ -32,7 +32,7 @@ export class TodoNoteAdd extends React.Component {
         return (
             <div>
                 <form onSubmit={this.onSubmit} action=''>
-                    <label htmlFor="note-todo-label-add">label</label>
+                    <label htmlFor="note-todo-label-add">Label</label>
                     <input
                         type="text"
                         onChange={this.handleChange}
@@ -41,7 +41,7 @@ export class TodoNoteAdd extends React.Component {
                         value={label}
 
                     />
-                    <label htmlFor="note-todo-list-add">Enter coma seperated list</label>
+                    <label htmlFor="note-todo-list-add">Enter Coma Seperated List:</label>
                     <input
                         type='text'
                         onChange={this.handleChange}
@@ -50,7 +50,7 @@ export class TodoNoteAdd extends React.Component {
                         value={list}
                     />
 
-                    <button>Add List</button>
+                    <button className="note-add-button">Add Note</button>
                 </form>
             </div>
         )

@@ -32,7 +32,7 @@ export class TextNoteAdd extends React.Component {
                         name='input'
                         value={input}
                     />
-                    <button>Add Text-Note</button>
+                    <button className="note-add-button">Add Note</button>
                 </form>
             </div>
         )
