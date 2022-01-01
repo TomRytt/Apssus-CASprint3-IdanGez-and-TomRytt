@@ -1,39 +1,37 @@
 .note-preview {
-    display: inline-flex;
-    flex-direction: column;
-    padding: 10px;
-    margin: 10px;
-    width: 385px;
-    border: 1px solid rgba(206, 205, 205, 0.521);
-    border-radius: 8px;
-    transition: 0.2s;
+	display: inline-flex;
+	flex-direction: column;
+	padding: 10px;
+	margin: 10px;
+	width: 385px;
+	border: 1px solid rgba(206, 205, 205, 0.521);
+	border-radius: 8px;
+	transition: 0.2s;
 }
 
 .note-preview:hover {
-    box-shadow: 0px 0px 0px 2px #A0A0A0, 
-                inset 0px 10px 27px -8px #141414, 
-                inset 0px -10px 27px -8px #eef1c4, 
-                30px 5px 40px 5px rgba(0,0,0,0);    
-    opacity: 0.9;
-    cursor: pointer;
-}
-.note-preview button{
-    margin-top: 10px;
-    display: flex;
-    gap: 5px;
-    width: 40px;
-    height: 40px;
-    margin-right:10px;
-    background-color:inherit;
-    border: none;
+	box-shadow: 0px 0px 0px 2px #a0a0a0, inset 0px 10px 27px -8px #141414,
+		inset 0px -10px 27px -8px #eef1c4, 30px 5px 40px 5px rgba(0, 0, 0, 0);
+	opacity: 0.9;
+	cursor: pointer;
 }
 
-.note-preview button:hover{
-    cursor: pointer;
+.note-preview button {
+	margin-top: 10px;
+	display: flex;
+	gap: 5px;
+	width: 40px;
+	height: 40px;
+	margin-right: 10px;
+	background-color: inherit;
+	border: none;
+}
+
+.note-preview button:hover {
+	cursor: pointer;
 }
 
 .note-preview-elements {
-    display: flex;
-    flex-direction: row;
+	display: flex;
+	flex-direction: row;
 }
-

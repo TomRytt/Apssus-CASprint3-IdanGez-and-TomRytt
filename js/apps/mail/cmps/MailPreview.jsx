@@ -14,7 +14,7 @@ export function MailPreview({
 		<article className='mail-preview'>
 			<span
 				onClick={() => onToggleStarred(mail.id)}
-				className={`'star' + ${mail.isStarred ? 'on' : 'off'}`}>
+				className={`star + ${mail.isStarred ? 'on' : 'off'}`}>
 				&#9733;
 			</span>
 			{!mail.isOpen ? (

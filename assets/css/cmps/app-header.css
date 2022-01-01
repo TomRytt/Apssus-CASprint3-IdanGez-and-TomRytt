@@ -1,28 +1,34 @@
-
 .app-header {
-    background-color: beige;
-    font-size: 2rem;
-}
-
-.app-header {
-    cursor:pointer;
+	background-color: royalblue;
+	font-size: 1.5rem;
+	color: whitesmoke;
 }
 
 .app-header .header-container {
-    display: flex;
-    justify-content: space-between;
-    text-align: center;
-    /* margin-left: 20px; */
+	padding-left: 30px;
+	display: flex;
+	justify-content: space-between;
+	height: 10vh;
+	align-items: center;
+	cursor: pointer;
+	/* margin-left: 20px; */
 }
 
 .app-nav a {
-text-decoration: none;
-font-weight: bold;
-margin-left: 20px;
-color: inherit;
-
+	padding-left: 5px;
+	text-decoration: none;
+	font-weight: bold;
+	margin-left: 20px;
+	color: inherit;
+	border-left: 1px solid whitesmoke;
+	height: 10vh;
 }
 
-.app-nav a:hover{
-    
+.app-nav a:last-child {
+	margin-right: 30px;
+}
+
+.app-nav a:hover {
+	cursor: pointer;
+	border-bottom: 1px solid whitesmoke;
 }
