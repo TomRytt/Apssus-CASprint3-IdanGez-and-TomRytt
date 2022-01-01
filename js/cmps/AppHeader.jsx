@@ -1,4 +1,4 @@
-const {NavLink, withRouter} = ReactRouterDOM;
+const { NavLink, withRouter } = ReactRouterDOM;
 class _AppHeader extends React.Component {
 	render() {
 		return (
@@ -6,20 +6,20 @@ class _AppHeader extends React.Component {
 				<div className='header-container'>
 					<h1 onClick={() => this.props.history.push('/')}>Appssus</h1>
 					<nav className='app-nav'>
-						<NavLink activeClassName='my-active' exact to='/'>
+						{/* <NavLink activeClassName='my-active' exact to='/'>
 							Home
-						</NavLink>
-						<NavLink activeClassName='my-active' to='/about'>
+						</NavLink> */}
+						{/* <NavLink activeClassName='my-active' to='/about'>
 							About
-						</NavLink>
+						</NavLink> */}
 						<NavLink activeClassName='my-active' to='/mail'>
-							MailApp
+							<img className="mail-app-icon" src="../../assets/imgs/main/email.png" alt="" />
 						</NavLink>
 						<NavLink activeClassName='my-active' to='/notes'>
-							KeepApp
+							<img className="note-app-icon" src="../../assets/imgs/main/notes.png" alt="" />
 						</NavLink>
 						<NavLink activeClassName='my-active' to='/books'>
-							BookApp
+							<img className="bookshop-icon" src="../../assets/imgs/main/book.png" alt="" />
 						</NavLink>
 					</nav>
 				</div>

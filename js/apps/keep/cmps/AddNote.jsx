@@ -1,6 +1,4 @@
-import { DynamicTodoAdd } from './dynamic-cmps/dynamicTodoAdd.jsx'
-
-
+import { DynamicNoteAdd } from './dynamic-cmps/DynamicNoteAdd.jsx'
 export class AddNote extends React.Component {
 
     state = {
@@ -16,7 +14,7 @@ export class AddNote extends React.Component {
         const { loadNotes, onAddNote, handleChange } = this.props
         const { type } = this.state
         return (
-            <div className="note-add">
+            <div className="note-add">Add Note
                 <div className="note-add-buttons">
                     <button value="text" onClick={this.handleChange}>Note</button>
                     <button value="img" onClick={this.handleChange}>Image</button>
@@ -24,7 +22,7 @@ export class AddNote extends React.Component {
                     <button value="video" onClick={this.handleChange}>Video</button>
                 </div>
                 <div className="note-add-dynamic-form">
-                    <DynamicTodoAdd
+                    <DynamicNoteAdd
                         loadNotes={loadNotes}
                         onAddNote={onAddNote}
                         handleChange={handleChange}

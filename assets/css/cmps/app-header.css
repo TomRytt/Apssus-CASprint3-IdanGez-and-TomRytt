@@ -11,24 +11,38 @@
 	height: 10vh;
 	align-items: center;
 	cursor: pointer;
-	/* margin-left: 20px; */
 }
 
 .app-nav a {
 	padding-left: 5px;
 	text-decoration: none;
 	font-weight: bold;
-	margin-left: 20px;
+	margin-left: 30px;
 	color: inherit;
-	border-left: 1px solid whitesmoke;
 	height: 10vh;
 }
 
 .app-nav a:last-child {
-	margin-right: 30px;
+	margin-right: 80px;
 }
 
 .app-nav a:hover {
 	cursor: pointer;
-	border-bottom: 1px solid whitesmoke;
+}
+
+.mail-app-icon{
+	height: 55px;
+	transform: translate(0, 10%);
+
+}
+.note-app-icon{
+	height: 45px;
+	width: 50px;
+	transform: translate(0,0);
+
+}
+.bookshop-icon{
+	height: 55px;
+	transform: translate(0,5%);
+
 }

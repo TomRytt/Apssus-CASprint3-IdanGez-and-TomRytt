@@ -2,7 +2,7 @@ import {noteService} from '../apps/keep/services/note.service.js';
 import {NoteList} from '../apps/keep/cmps/note-list.jsx';
 import {AddNote} from '../apps/keep/cmps/AddNote.jsx';
 import {NoteFilter} from '../apps/keep/cmps/note-filter.jsx';
-import {NoteEdit} from '../apps/keep/cmps/NoteEdit.jsx';
+// import {NoteEdit} from '../apps/keep/cmps/NoteEdit.jsx';
 
 const {Route} = ReactRouterDOM;
 export class NotesApp extends React.Component {
@@ -25,7 +25,6 @@ export class NotesApp extends React.Component {
 
 	onSetFilter = (filterBy) => {
 		this.setState({filterBy}, this.loadNotes);
-		// console.log('onsetfilter', filterBy)
 	};
 
 	onAddNote = (input, type) => {
@@ -46,16 +45,6 @@ export class NotesApp extends React.Component {
 		this.loadNotes();
 	};
 
-	onEditNote = (note) => {
-		// ev.stopPropagation();
-		// this.setState({ currNoteUpdate: note });
-		console.log(note)
-		// console.log(this.state)
-		// window.location.replace("/index.html#/keep/update");
-		// this.setState({noteUpdate : note})
-		// window.location.replace("/index.html#/notes/edit");
-	}
-
 	onPinnNote = (id) => {
 		noteService.pinnNote(id);
 		this.loadNotes();
@@ -70,7 +59,6 @@ export class NotesApp extends React.Component {
 					filterBy={this.state.filterBy}
 					onSetFilter={this.onSetFilter}
 				/>
-				{/* <Route component={() => <NoteEdit loadNotes={this.loadNotes} note={this.state.currNoteUpdate} />} path='/notes/edit' /> */}
 				<AddNote
 					className='add-note-main'
 					loadNotes={this.loadNotes}
@@ -83,7 +71,6 @@ export class NotesApp extends React.Component {
 					onDeleteNote={this.onDeleteNote}
 					notes={notes}
 					onDuplicateNote={this.onDuplicateNote}
-					onEditNote={this.onEditNote}
 					onPinnNote={this.onPinnNote}
 				/>
 			</section>

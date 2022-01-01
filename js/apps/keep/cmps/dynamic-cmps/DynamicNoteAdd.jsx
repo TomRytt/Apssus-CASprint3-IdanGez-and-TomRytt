@@ -3,9 +3,7 @@ import { ImgNoteAdd } from './ImgNoteAdd.jsx'
 import { TodoNoteAdd } from './TodoNoteAdd.jsx'
 import { VideoNoteAdd } from './VideoNoteAdd.jsx'
 
-export function DynamicTodoAdd({ type, onAddNote }) {
-    // console.log('hi')
-    // console.log(type)
+export function DynamicNoteAdd({ type, onAddNote }) {
     switch (type) {
         case 'text':
             return <TextNoteAdd

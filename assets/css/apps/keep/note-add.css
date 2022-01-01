@@ -1,10 +1,9 @@
 .note-add{
-    height: 90px;
+    height: 150px;
     width: 100%;
-    background-color: rgb(223, 195, 223);
+    background-color:#FFEDDA;
     display: flex;
     flex-direction: column;
-    /* flex-wrap: wrap; */
     justify-content: center;
     align-items: center;
     font-size: 30px;
@@ -16,25 +15,20 @@
     height: 30px;
     border: none;
     border-radius: 10px;
-    background-color: #b7ebff;
+    background-color: royalblue;
     font-size: 20px;
     margin-right:10px;
-
+    color: whitesmoke;
 }
 
 .note-add button:hover{
     cursor: pointer;
-    box-shadow: 0px 0px 0px 2px #f3ecec, 
-    inset 0px 10px 27px -8px #d8d3d3, 
-    inset 0px -10px 27px -8px #e1c1e9, 
-    30px 5px 40px 5px rgba(0,0,0,0);    
-    opacity: 0.9;
+    opacity: 0.8;
 }
 
 .note-add label{
 font-size:20px;
 font-weight: 700;
-/* flex-wrap: wrap; */
 }
 
 .note-add form button{
@@ -49,7 +43,6 @@ font-weight: 700;
     inset 0px -10px 27px -8px #e1c1e9, 
     30px 5px 40px 5px rgba(0,0,0,0);    
     opacity: 0.9;
-
 }
 
 .note-add label {

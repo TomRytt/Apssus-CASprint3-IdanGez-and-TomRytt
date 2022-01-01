@@ -1,3 +1,8 @@
+.note-preview-elements{
+    display: flex;
+    justify-content:center;
+}
+
 .delete-note-img{
     width: 30px;
     height: 35px;

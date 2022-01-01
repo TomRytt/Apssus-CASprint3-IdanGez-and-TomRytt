@@ -47,7 +47,7 @@ export class VideoNoteAdd extends React.Component {
                         name="label"
                         value={label}
                     />
-                   <button className="note-add-button">Add Note</button>
+                    <button className="note-add-button">Add Note</button>
                 </form>
             </div>
         )

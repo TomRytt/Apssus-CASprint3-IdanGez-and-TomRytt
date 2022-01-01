@@ -1,4 +1,3 @@
-import { noteService } from '../../services/note.service.js'
 export class ImgNoteAdd extends React.Component {
 
     state = {
@@ -9,7 +8,7 @@ export class ImgNoteAdd extends React.Component {
         type: 'note-img'
     }
 
-     handleChange = (event) => {
+    handleChange = (event) => {
         const target = event.target;
         const field = target.name;
         const value = target.type === 'number' ? +target.value : target.value;
@@ -18,12 +17,11 @@ export class ImgNoteAdd extends React.Component {
         }));
     };
 
-
     onSubmit = (ev) => {
         ev.preventDefault();
-        const {image,type} = this.state;
+        const { image, type } = this.state;
         this.props.onAddNote(image, type)
-        this.setState({ url: '' , label:'',});
+        this.setState({ url: '', label: '', });
 
     };
 

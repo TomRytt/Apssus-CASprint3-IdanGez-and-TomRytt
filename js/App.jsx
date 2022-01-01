@@ -1,18 +1,18 @@
 // Pages
-import {MailApp} from './pages/MailApp.jsx';
-import {BookApp} from './pages/BookApp.jsx';
-import {NotesApp} from './pages/NotesApp.jsx';
-import {Home} from './pages/Home.jsx';
-import {About} from './pages/About.jsx';
+import { MailApp } from './pages/MailApp.jsx';
+import { BookApp } from './pages/BookApp.jsx';
+import { NotesApp } from './pages/NotesApp.jsx';
+import { Home } from './pages/Home.jsx';
+import { About } from './pages/About.jsx';
 
 // Cmps
-import {UserMsg} from './cmps/UserMsg.jsx';
-import {AppHeader} from './cmps/AppHeader.jsx';
-import {Footer} from './cmps/Footer.jsx';
+import { UserMsg } from './cmps/UserMsg.jsx';
+import { AppHeader } from './cmps/AppHeader.jsx';
+import { Footer } from './cmps/Footer.jsx';
 
 // ReactDom
 const Router = ReactRouterDOM.HashRouter;
-const {Route, Switch} = ReactRouterDOM;
+const { Route, Switch } = ReactRouterDOM;
 
 // Main App
 export function App() {
@@ -27,12 +27,11 @@ export function App() {
 						<Route component={MailApp} path='/mail' />
 						<Route component={BookApp} path='/books' />
 						<Route component={NotesApp} path='/notes' />
-						<Route component={About} path='/about' />
+						{/* <Route component={Abou	t} path='/about' /> */}
 						<Route component={Home} path='/' />
 					</Switch>
 				</main>
 			</section>
-			{/* <Footer /> */}
 			<UserMsg />
 		</Router>
 	);

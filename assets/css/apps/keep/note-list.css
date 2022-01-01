@@ -1,7 +1,8 @@
 .note-list {
+   background-color: #EEF2FF;
     width: 100%;
     text-align: center;
-    column-count: 4;
+    column-count: 5;
     column-width: 385px;
     gap: 30px;
   }

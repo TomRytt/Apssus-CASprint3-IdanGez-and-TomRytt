@@ -1,6 +1,5 @@
-// import { ColorInput } from 'ץ./ColorInput.jsx'
 
-export function DynamicCmp({ note }) {
+export function DynamicNoteRender({ note }) {
     if (!note.type) return <React.Fragment></React.Fragment>
     switch (note.type) {
         case 'note-txt':
