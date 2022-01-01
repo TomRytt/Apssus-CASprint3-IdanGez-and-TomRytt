@@ -1,4 +1,3 @@
-// import {utilService} from '../../../services/util.service.js';
 import {LongText} from '../../../cmps/LongText.jsx';
 
 const {Link} = ReactRouterDOM;
@@ -59,10 +58,3 @@ export function MailPreview({
 		</article>
 	);
 }
-
-// To do:
-// 1. add the trash and expand symbols
-// 3. add styling
-// 4. add a time/date at the top right of each mail
-// 5. add staring a mail
-// 6. Support hover state

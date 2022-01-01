@@ -19,12 +19,6 @@ export class MailFilter extends React.Component {
 		);
 	};
 
-	// onSubmitFilter = (ev) => {
-	// 	ev.preventDefault();
-	// 	this.props.onSetFilter(this.state.filterBy);
-	// 	this.cleanForm();
-	// };
-
 	cleanForm = () => {
 		this.setState({filterBy: {searchVal: '', isRead: null}});
 	};
@@ -58,7 +52,3 @@ export class MailFilter extends React.Component {
 		);
 	}
 }
-
-//  Filter emails: by search, by read/unread
-//  Allow sorting the emails by date and by title
-// onSubmit={this.onSubmitFilter}

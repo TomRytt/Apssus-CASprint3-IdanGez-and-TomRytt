@@ -7,8 +7,10 @@ import {BookList} from '../apps/book/cmps/bookList.jsx';
 import {BookFilter} from '../apps/book/cmps/BookFilter.jsx';
 import {AddBook} from '../apps/book/cmps/AddBook.jsx';
 
-const { Route} = ReactRouterDOM;
+// Pages
+import {BookDetails} from '../apps/book/pages/BookDetails.jsx';
 
+const {Route} = ReactRouterDOM;
 export class BookApp extends React.Component {
 	state = {
 		books: [],
@@ -38,17 +40,6 @@ export class BookApp extends React.Component {
 				link: `${book.id}`,
 			});
 			this.loadBooks();
-		});
-	};
-
-	onRemoveCar = () => {
-		const {id} = this.state.car;
-		carService.removeCar(id).then(() => {
-			eventBusService.emit('user-msg', {
-				txt: 'Car is deleted !',
-				type: 'danger',
-			});
-			this.onGoBack();
 		});
 	};
 

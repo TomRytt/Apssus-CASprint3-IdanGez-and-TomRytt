@@ -1,8 +1,3 @@
-//  Routable component (page)
-// • show the entire email
-// • Allow deleting an email (using the service)
-// • Allow navigating back to list
-
 import {mailService} from '../services/mailService.js';
 import {Loader} from '../../../cmps/Loader.jsx';
 

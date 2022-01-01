@@ -14,7 +14,8 @@ export function MailFolderList({mails, onSetFilter}) {
 		<div className='mail-folder-list-container'>
 			<Link className='primary-btn clean-link' to='/mail/composemail'>
 				<button className='btn mail-folder-list-compose-btn'>
-					<span>➕</span> <span className='compose-span'>Compose</span>
+					<span className='compose-sign-span'>➕</span>{' '}
+					<span className='compose-span'>Compose</span>
 				</button>
 			</Link>
 			<span
@@ -41,7 +42,6 @@ export function MailFolderList({mails, onSetFilter}) {
 				<i className='fas fa-trash'></i>
 				<span>Deleted</span>
 			</span>
-			{/* <button onClick={() => onSetFilter({status: 'draft'})}>Draft</button> */}
 			<label>
 				<meter
 					className='unread-meter'
@@ -54,5 +54,3 @@ export function MailFolderList({mails, onSetFilter}) {
 		</div>
 	);
 }
-
-// Fix the number in the draft

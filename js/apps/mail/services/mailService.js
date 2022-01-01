@@ -245,7 +245,7 @@ function query(filterBy = null) {
 				by: 'Oded Kovo',
 				from: 'notodedsrealmail@appsus.com',
 				subject: 'Check out my Lorems',
-				body: utilService.makeLorem(70),
+				body: utilService.makeLorem(30),
 				isRead: false,
 				sentAt: 'December 03 12:45',
 				to: 'user@appsus.com',
@@ -379,7 +379,6 @@ function getNewMailId() {
 // Private Funcs
 
 function _getFilteredMails(mails, filterBy) {
-	console.log(filterBy);
 	let {status, searchVal, isRead, isStarred} = filterBy;
 	if (isRead === 'read') isRead = true;
 	else if (isRead === 'unread') isRead = false;

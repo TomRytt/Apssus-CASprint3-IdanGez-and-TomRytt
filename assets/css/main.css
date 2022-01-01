@@ -36,3 +36,11 @@
 @import './apps/keep/image-note.css';
 @import './apps/keep/text-note.css';
 @import './apps/keep/video-note.css';
+
+/* Book */
+@import './apps/book/pages/book-details.css';
+@import './apps/book/cmps/book-list.css';
+@import './apps/book/cmps/book-preview.css';
+@import './apps/book/cmps/review-add.css';
+@import './apps/book/cmps/star-rating.css';
+@import './apps/book/cmps/book-filter.css';

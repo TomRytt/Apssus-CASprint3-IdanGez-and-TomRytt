@@ -13,24 +13,20 @@ export class UserMsg extends React.Component {
 			clearTimeout(this.timeoutId);
 			this.setState({msg}, this.onAutoClose);
 		});
-		// console.log('mounted');
 	}
 
 	onAutoClose = () => {
-		// console.log('onAutoClose');
 		this.timeoutId = setTimeout(() => {
 			this.onCloseMsg();
 		}, 3000);
 	};
 
 	onCloseMsg = () => {
-		// console.log('onCloseMsg');
 		clearTimeout(this.timeoutId);
 		this.setState({msg: null});
 	};
 
 	componentWillUnmount() {
-		// console.log('componentWillUnmount');
 		this.removeEventBus();
 	}
 

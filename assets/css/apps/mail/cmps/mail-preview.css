@@ -1,6 +1,6 @@
 .mail-preview {
 	margin-left: 50px;
-	width: 75vw;
+	width: 80vw;
 	border: 1px solid rgb(151, 151, 151);
 	display: flex;
 	background-color: #eef2ff34;
@@ -9,10 +9,6 @@
 	padding-top: 1px;
 	padding-bottom: 1px;
 }
-
-/* .mail-preview:first-child {
-	margin-top: 50px;
-} */
 
 span.star {
 	padding-left: 1;
@@ -97,10 +93,7 @@ h2.mail-body {
 .mail-hover-actions {
 	display: none;
 	position: relative;
-	/* justify-self: flex-end; */
 	height: 50%;
-	/* left: 80%; */
-	/* bottom: 70%; */
 }
 
 .on {
@@ -142,4 +135,19 @@ i {
 
 .mail-preview:hover .mail-hover-actions {
 	display: flex;
+}
+
+@media (max-width: 768px) {
+	.mail-preview {
+		min-height: 10vh;
+		padding: 0;
+		margin-left: 10px;
+		width: 80vw;
+	}
+	span.star {
+		min-height: 10vh;
+	}
+	.mail-preview header {
+		min-height: 10vh;
+	}
 }

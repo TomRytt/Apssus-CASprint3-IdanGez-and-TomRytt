@@ -1,0 +1,85 @@
+.book-details {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	background-color: rgba(27, 27, 83, 0.568);
+	width: 1000px;
+	margin: 0 auto;
+	font-size: 1rem;
+	height: 50vh;
+}
+
+.book-details .imgs-container {
+	width: 45%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.book-details .details-container {
+	width: 45%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.book-details h2 {
+	text-align: center;
+	margin-top: 0;
+}
+
+.book-details h4 {
+	margin-left: 2rem;
+	margin-bottom: 10px;
+}
+
+.book-details p {
+	margin-left: 2rem;
+}
+
+.low {
+	color: green;
+}
+
+.high {
+	color: red;
+}
+
+article.book-details img {
+	height: 150px;
+	max-width: fit-content;
+}
+
+/* .book-details Button {
+	box-shadow: 3px 4px 0px 0px #899599;
+	background: linear-gradient(to bottom, #ededed 5%, #bab1ba 100%);
+	background-color: #ededed;
+	border-radius: 15px;
+	border: 1px solid #d6bcd6;
+	display: inline-block;
+	cursor: pointer;
+	color: #3a8a9e;
+	font-family: Arial;
+	font-size: 17px;
+	padding: 7px 25px;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #e1e2ed;
+	margin-left: 2rem;
+	margin-bottom: 20px;
+}
+
+.book-details Button:hover {
+	background: linear-gradient(to bottom, #bab1ba 5%, #ededed 100%);
+	background-color: #bab1ba;
+}
+.book-details Button:active {
+	position: relative;
+	top: 1px;
+} */
+
+.book-details span.staron {
+	color: gold;
+}
+.book-details span.staroff {
+	color: #ccc;
+}

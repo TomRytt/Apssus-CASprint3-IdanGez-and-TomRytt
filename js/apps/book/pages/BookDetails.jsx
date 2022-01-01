@@ -116,16 +116,6 @@ export class BookDetails extends React.Component {
 					'No reviews yet'
 				)}
 				<ReviewAdd book={book} loadBook={this.loadBook} />
-				<Link
-					className='primary-btn clean-link'
-					to={`/books/${bookService.getNextBookId(book.id)}`}>
-					Next Book
-				</Link>
-				<Link
-					className='primary-btn clean-link'
-					to={`/books/${bookService.getPrevBookId(book.id)}`}>
-					Previous Book
-				</Link>
 			</article>
 		);
 	}

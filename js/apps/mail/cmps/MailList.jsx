@@ -1,5 +1,3 @@
-// import {utilService} from '../../../../js/services/util.service';
-
 import {MailPreview} from './MailPreview.jsx';
 
 export function MailList({

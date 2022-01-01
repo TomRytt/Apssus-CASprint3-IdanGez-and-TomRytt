@@ -23,11 +23,8 @@ export class AddBook extends React.Component {
 
 	render() {
 		const {searchValue, bookList} = this.state;
-		// console.log(bookList);
-		// if (bookList) console.log(bookList.items[0].volumeInfo.title);
-		// if (!bookList) return <div>Loading</div>;
 		return (
-			<div>
+			<div className='add-book-container'>
 				<form onSubmit={this.searchBook}>
 					<input
 						value={searchValue}
