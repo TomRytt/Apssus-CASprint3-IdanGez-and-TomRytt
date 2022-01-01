@@ -14,36 +14,38 @@ export function MailFolderList({mails, onSetFilter}) {
 		<div className='mail-folder-list-container'>
 			<Link className='primary-btn clean-link' to='/mail/composemail'>
 				<button className='btn mail-folder-list-compose-btn'>
-					Compose Mail
+					<span>➕</span> <span className='compose-span'>Compose</span>
 				</button>
 			</Link>
 			<span
 				className=' mail-folder-list-fa fas fa-inbox'
 				onClick={() => onSetFilter({status: 'inbox'})}>
-				<span>Inbox</span>
+				<span className='mail-folder-list-text-span'>Inbox</span>
 			</span>
 			<span
 				className='fas fa-star mail-folder-list-fa'
 				onClick={() => onSetFilter({isStarred: 'true'})}>
-				<span>Starred</span>
+				<span className='mail-folder-list-text-span'>Starred</span>
 			</span>
 			<span
 				className=' mail-folder-list-fa fas fa-paper-plane'
 				onClick={() => onSetFilter({status: 'sent'})}>
-				<span>Sent</span>
+				<span className='mail-folder-list-text-span'>Sent</span>
 			</span>
-			<button
-				className='btn mail-folder-list-btn'
+			<span
+				className='fas fa-trash mail-folder-list-fa'
 				onClick={() => onSetFilter({status: 'trash'})}>
-				Deleted
-			</button>
+				<span className='mail-folder-list-text-span'>Deleted</span>
+			</span>
 			{/* <button onClick={() => onSetFilter({status: 'draft'})}>Draft</button> */}
 			<label>
 				<meter
 					className='unread-meter'
 					max='100'
 					value={`${updateUnreadMeter()}`}></meter>
-				<span>{`${updateUnreadMeter().toFixed(2)}`}%</span>
+				<span className='meter-text'>
+					{`${updateUnreadMeter().toFixed(2)}`}%
+				</span>
 			</label>
 		</div>
 	);

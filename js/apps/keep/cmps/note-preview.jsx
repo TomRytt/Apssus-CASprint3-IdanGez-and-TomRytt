@@ -1,13 +1,13 @@
-import { DynamicCmp } from './dynamic-cmps/DynamicCmp.jsx'
-import { ColorInput } from './ColorInput.jsx'
+import {DynamicCmp} from './dynamic-cmps/DynamicCmp.jsx';
+import {ColorInput} from './ColorInput.jsx';
 export class NotePreview extends React.Component {
-    state = {
-        noteColor: 'white',
-    }
+	state = {
+		noteColor: 'white',
+	};
 
-    onChangeNoteColor = (ev) => {
-        this.setState({ noteColor: ev.target.value })
-    }
+	onChangeNoteColor = (ev) => {
+		this.setState({noteColor: ev.target.value});
+	};
 
     render() {
         const { noteColor } = this.state
