@@ -25,7 +25,7 @@ function getLoggedinUser() {
 	return loggedinUser;
 }
 
-function query(filterBy = 'inbox') {
+function query(filterBy = null) {
 	let mails = _loadMailsFromStorage();
 	if (!mails || !mails.length) {
 		mails = [
@@ -384,10 +384,10 @@ function _getFilteredMails(mails, filterBy) {
 	if (isRead === 'read') isRead = true;
 	else if (isRead === 'unread') isRead = false;
 	return mails.filter((mail) => {
-		if (status) return mail.status === status;
+		if (status === mail.status) return mail;
 		else if (isStarred === 'true') return mail.isStarred;
 		else if (mail.status !== 'trash') {
-			if (isRead === 'all' && mail.status !== 'sent') {
+			if (isRead === 'all') {
 				return (
 					(mails &&
 						mail.subject.toLowerCase().includes(searchVal.toLowerCase())) ||
