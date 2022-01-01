@@ -5,7 +5,7 @@ export function DynamicCmp({ note }) {
     switch (note.type) {
         case 'note-txt':
             return (
-                <div 
+                <div
                     className="text-note">
                     {note.info.txt}
                 </div>
@@ -19,10 +19,10 @@ export function DynamicCmp({ note }) {
             )
         case 'note-todos':
             return (
-                <div
-                    className="todos-note-label">{note.info.label}
+                <div className="todos-note-container">
+                    <span className="todos-note-label">{note.info.label}</span>
                     {note.info.todos.map((todo, idx) => {
-                        return <div className="todo-note-list" key={idx}>{todo.txt}<span>{todo.doneAt}</span>
+                        return <div className="todos-note-list" key={idx}>{todo.txt}
                         </div>
                     })}
                 </div>

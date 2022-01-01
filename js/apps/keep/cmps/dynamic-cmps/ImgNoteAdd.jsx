@@ -49,7 +49,7 @@ export class ImgNoteAdd extends React.Component {
                         name="label"
                         value={label}
                     />
-                    <button>Add Image</button>
+                    <button className="note-add-button">Add Note</button>
                 </form>
             </div>
         )

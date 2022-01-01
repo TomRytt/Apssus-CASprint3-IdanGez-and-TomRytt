@@ -13,19 +13,23 @@ export class AddNote extends React.Component {
     }
 
     render() {
-        const {loadNotes, onAddNote, handleChange} = this.props
+        const { loadNotes, onAddNote, handleChange } = this.props
         const { type } = this.state
         return (
             <div className="note-add">
-                <button value="text" onClick={this.handleChange}>Note</button>
-                <button value="img" onClick={this.handleChange}>Image</button>
-                <button value="todos" onClick={this.handleChange}>Todos</button>
-                <button value="video" onClick={this.handleChange}>Video</button>
-                <DynamicTodoAdd 
-                loadNotes={loadNotes} 
-                onAddNote={onAddNote}
-                handleChange={handleChange}
-                type={type} />
-            </div>)
+                <div className="note-add-buttons">
+                    <button value="text" onClick={this.handleChange}>Note</button>
+                    <button value="img" onClick={this.handleChange}>Image</button>
+                    <button value="todos" onClick={this.handleChange}>Todos</button>
+                    <button value="video" onClick={this.handleChange}>Video</button>
+                </div>
+                <div className="note-add-dynamic-form">
+                    <DynamicTodoAdd
+                        loadNotes={loadNotes}
+                        onAddNote={onAddNote}
+                        handleChange={handleChange}
+                        type={type} />
+                </div>
+            </div >)
     }
 }

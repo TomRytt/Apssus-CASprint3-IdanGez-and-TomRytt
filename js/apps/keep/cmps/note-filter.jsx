@@ -34,7 +34,7 @@ export class NoteFilter extends React.Component {
           {/* <label htmlFor="note-search">Search Note:</label> */}
           <input
             className="note-filter-input"
-            placeholder="Search a note"
+            placeholder="Search A Note:"
             type="text"
             id="note-search"
             name="searchValue"
@@ -53,7 +53,7 @@ export class NoteFilter extends React.Component {
             <option value="note-video">Video Notes</option>
             <option value="note-img">Image Notes</option>
           </select>
-          <button className="filter-btn">Filter</button>
+          {/* <button className="filter-btn">Filter</button> */}
         </form>
       </div>
     );

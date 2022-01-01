@@ -1,11 +1,23 @@
-.todos-note{
-    margin:5px 0;
-}
 
-.todo-note {
+.todos-note {
     margin:5px 0;
     font-size: 1.5rem;
     max-width: 200px;
     background-color: rgb(191, 191, 226);
+    
+}
+
+.todos-note-label {
+    font-weight: bold;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    text-align: left;
+    text-decoration: underline;
+}
+
+.todos-note-list{
+    text-align: center;
+    font-size: 1.1rem;
+    margin-top:5px;
 
 }

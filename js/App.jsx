@@ -32,7 +32,7 @@ export function App() {
 					</Switch>
 				</main>
 			</section>
-			<Footer />
+			{/* <Footer /> */}
 			<UserMsg />
 		</Router>
 	);
