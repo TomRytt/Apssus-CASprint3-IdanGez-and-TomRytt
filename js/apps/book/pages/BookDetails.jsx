@@ -76,7 +76,9 @@ export class BookDetails extends React.Component {
 				<img src={`${book.thumbnail}`} alt='' />
 				<br></br>
 				<img
-					src={book.listPrice.isOnSale ? 'assets/imgs/on-sale.png' : ''}></img>
+					src={
+						book.listPrice.isOnSale ? 'assets/imgs/book-app/on-sale.png' : ''
+					}></img>
 				<h4>Authors: {book.authors.map((author) => `${author}`)}</h4>
 				<h4>Details: {book.subtitle}</h4>
 				<h4>
@@ -97,7 +99,6 @@ export class BookDetails extends React.Component {
 				{book.reviews ? (
 					<div className='reviews-container'>
 						Reviews:
-						<br></br>
 						{book.reviews.map((review, idx) => (
 							<div className={`review-${idx + 1}-container`} key={idx}>
 								<span>
