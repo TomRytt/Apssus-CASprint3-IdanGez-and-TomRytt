@@ -16,16 +16,26 @@ export class NotePreview extends React.Component {
         else {
             return (
                 <section
+                style={{ backgroundColor: noteColor }}
+
                     className="note-preview">
                     <DynamicCmp loadNotes={loadNotes}
-                        note={note}
-                        noteColor={noteColor}
-                    />
-                    <button onClick={() => this.props.onDeleteNote(note.id)}>Delete Note</button>
-                    <button onClick={() => this.props.onDuplicateNote(note.id)}>Duplicate</button>
-                    <button onClick={() => this.props.onEditNote(note)}>Edit</button>
-                    <button onClick={() => this.props.onPinnNote(note.id)}>Pinn</button>
-                    <ColorInput note={note} onChangeNoteColor={this.onChangeNoteColor} />
+                        note={note}/>
+                    <div className="note-preview-elements">
+                        <button onClick={() => this.props.onEditNote(note)}>
+                            Edit
+                        </button>
+                        <button onClick={() => this.props.onDeleteNote(note.id)}>
+                            <img className="delete-note-img" src="./assets/imgs/keep-app/trash.png" alt="" />
+                        </button>
+                        <button onClick={() => this.props.onDuplicateNote(note.id)}>
+                            <img className="copy-note-img" src="./assets/imgs/keep-app/copy.png" alt="" />
+                        </button>
+                        <button onClick={() => this.props.onPinnNote(note.id)}>
+                        <img className="copy-note-img" src="./assets/imgs/keep-app/pinned.png" alt="" />
+                        </button>
+                        <ColorInput note={note} onChangeNoteColor={this.onChangeNoteColor} />
+                    </div>
                 </section>
             )
         }

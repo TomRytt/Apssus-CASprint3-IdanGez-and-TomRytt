@@ -16,7 +16,7 @@ export class AddNote extends React.Component {
         const {loadNotes, onAddNote, handleChange} = this.props
         const { type } = this.state
         return (
-            <div className="note-add-main">
+            <div className="note-add">
                 <button value="text" onClick={this.handleChange}>Note</button>
                 <button value="img" onClick={this.handleChange}>Image</button>
                 <button value="todos" onClick={this.handleChange}>Todos</button>

@@ -1,0 +1,7 @@
+.note-list {
+    width: 100%;
+    text-align: center;
+    column-count: 4;
+    column-width: 385px;
+    gap: 30px;
+  }

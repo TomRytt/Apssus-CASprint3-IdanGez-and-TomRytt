@@ -4,7 +4,7 @@ export class ImgNoteAdd extends React.Component {
     state = {
         image: {
             url: '',
-            title: '',
+            label: '',
         },
         type: 'note-img'
     }
@@ -23,13 +23,13 @@ export class ImgNoteAdd extends React.Component {
         ev.preventDefault();
         const {image,type} = this.state;
         this.props.onAddNote(image, type)
-        this.setState({ url: '' , title:'',});
+        this.setState({ url: '' , label:'',});
 
     };
 
 
     render() {
-        const { url, title } = this.state;
+        const { url, label } = this.state;
         return (
             <div>
                 <form onSubmit={this.onSubmit} action=''>
@@ -41,13 +41,13 @@ export class ImgNoteAdd extends React.Component {
                         name="url"
                         value={url}
                     />
-                    <label htmlFor="note-img-title">Title</label>
+                    <label htmlFor="note-img-label">label</label>
                     <input
                         type="text"
                         onChange={this.handleChange}
-                        id="note-img-title"
-                        name="title"
-                        value={title}
+                        id="note-img-label"
+                        name="label"
+                        value={label}
                     />
                     <button>Add Image</button>
                 </form>

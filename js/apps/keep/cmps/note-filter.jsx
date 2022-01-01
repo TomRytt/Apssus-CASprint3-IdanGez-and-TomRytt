@@ -30,10 +30,11 @@ export class NoteFilter extends React.Component {
 
     return (
       <div className="notes-filter-container">
-        <form className="note-filter" onSubmit={this.onSubmitFilter}>
-          <label htmlFor="note-search">Search Note:</label>
+        <form className="note-filter-form" onSubmit={this.onSubmitFilter}>
+          {/* <label htmlFor="note-search">Search Note:</label> */}
           <input
-            placeholder="Search note"
+            className="note-filter-input"
+            placeholder="Search a note"
             type="text"
             id="note-search"
             name="searchValue"
@@ -41,6 +42,7 @@ export class NoteFilter extends React.Component {
             onChange={this.handleChange}
           />
           <select
+            className="note-filter-select"
             name="searchType"
             id="noteType"
             onChange={this.handleChange}

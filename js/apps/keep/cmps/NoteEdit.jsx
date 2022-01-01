@@ -19,6 +19,7 @@ export class NoteEdit extends React.Component {
 
     componentDidMount() {
         console.log('hi')
+        console.log(note)
         let note = this.props.note
         if (note)
         // console.log(note)

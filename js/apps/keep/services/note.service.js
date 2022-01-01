@@ -17,7 +17,7 @@ const gNotes = [
 		type: 'note-txt',
 		isPinned: false,
 		info: { txt: 'Fullstack Me Baby!' },
-		style: { backgroundColor: '#00d' },
+		style: { backgroundColor: '#b7ebff' },
 	},
 	{
 		id: 'n102',

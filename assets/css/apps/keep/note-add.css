@@ -1,0 +1,26 @@
+.note-add{
+    height: 90px;
+    width: 100%;
+    background-color: rgb(223, 195, 223);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+
+.note-add button {
+    position: relative;
+    width: 100px;
+    height: 30px;
+    border: none;
+    border-radius: 10px;
+    background-color: #b7ebff;
+    font-size: 20px;
+    margin-right:10px;
+
+}
+
+.note-add input{
+display:flex;
+}
+/* color: blue */

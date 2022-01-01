@@ -1,4 +1,16 @@
 .image-note-img{
-    width: 150px;
-    height: 150px;
+    width: 250px;
+    height: 200px;
+    margin-top:10px;
+    border-radius:5px;
+}
+
+.image-note{
+    justify-content: center;
+  
+}
+
+.image-note-label{
+    font-weight: bold;
+    font-size: 1.3rem;
 }

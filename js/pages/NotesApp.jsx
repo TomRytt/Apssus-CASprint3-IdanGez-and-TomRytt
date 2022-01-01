@@ -10,7 +10,7 @@ export class NotesApp extends React.Component {
 	state = {
 		notes: [],
 		filterBy: null,
-		noteUpdate: null,
+		currNoteUpdate: null,
 	};
 
 	componentDidMount() {
@@ -49,11 +49,12 @@ export class NotesApp extends React.Component {
 
 	onEditNote = (note) => {
 		// ev.stopPropagation();
-		// noteService.editNote(id);
-
-		
-		// this.loadNotes();
-		window.location.replace(`/index.html#/notes:${note.id}`);
+		// this.setState({ currNoteUpdate: note });
+		console.log(note)
+		// console.log(this.state)
+		// window.location.replace("/index.html#/keep/update");
+		// this.setState({noteUpdate : note})
+		// window.location.replace("/index.html#/notes/edit");
 	}
 
 	onPinnNote = (id) => {
@@ -64,14 +65,13 @@ export class NotesApp extends React.Component {
 	render() {
 		const { notes } = this.state;
 		return (
-			<section className="note=App">
-				<h1>Keep App</h1>
+			<section className="note-app">
 				<NoteFilter
 					className="note-filter"
 					filterBy={this.state.filterBy}
 					onSetFilter={this.onSetFilter}
 				/>
-				<Route component={() => <NoteEdit loadNotes={this.loadNotes} note={this.state.noteUpdate}/>} path='/notes:noteId' />
+				{/* <Route component={() => <NoteEdit loadNotes={this.loadNotes} note={this.state.currNoteUpdate} />} path='/notes/edit' /> */}
 				<AddNote
 					className="add-note-main"
 					loadNotes={this.loadNotes}

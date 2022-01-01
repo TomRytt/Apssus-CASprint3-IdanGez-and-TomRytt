@@ -3,7 +3,7 @@ export class VideoNoteAdd extends React.Component {
     state = {
         video: {
             url: '',
-            title: '',
+            label: '',
         },
         type: 'note-video'
     }
@@ -21,13 +21,13 @@ export class VideoNoteAdd extends React.Component {
         ev.preventDefault();
         const { video, type } = this.state;
         this.props.onAddNote(video, type)
-        this.setState({ url: '', title: '', });
+        this.setState({ url: '', label: '', });
 
     };
 
 
     render() {
-        const { url, title } = this.state;
+        const { url, label } = this.state;
         return (
             <div>
                 <form onSubmit={this.onSubmit} action=''>
@@ -39,13 +39,13 @@ export class VideoNoteAdd extends React.Component {
                         name="url"
                         value={url}
                     />
-                    <label htmlFor="note-video-title">Title</label>
+                    <label htmlFor="note-video-label">label</label>
                     <input
                         type="text"
                         onChange={this.handleChange}
-                        id="note-video-title"
-                        name="title"
-                        value={title}
+                        id="note-video-label"
+                        name="label"
+                        value={label}
                     />
                     <button>Add Video</button>
                 </form>
