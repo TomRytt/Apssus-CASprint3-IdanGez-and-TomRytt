@@ -1,6 +1,7 @@
 .mail-app-container {
 	display: flex;
-	height: 100vh;
+	flex-wrap: wrap;
+	height: 92vh;
 	width: 100vw;
 	background-color: #cddeff;
 }
