@@ -44,7 +44,7 @@ export function MailFolderList({mails, onSetFilter}) {
 					max='100'
 					value={`${updateUnreadMeter()}`}></meter>
 				<span className='meter-text'>
-					{`Unread: ${updateUnreadMeter().toFixed(2)}`}%
+					{`Unread:${updateUnreadMeter().toFixed(2)}`}%
 				</span>
 			</label>
 		</div>

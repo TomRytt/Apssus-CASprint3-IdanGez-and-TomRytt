@@ -3,7 +3,7 @@
 	display: flex;
 	flex-direction: column;
 	height: 70vh;
-	width: 15vw;
+	width: 12.5vw;
 	justify-content: space-between;
 }
 
@@ -16,17 +16,20 @@ meter.unread-meter {
 	position: relative;
 	content: attr(value);
 	margin-left: 5%;
-	/* transform: translateX(-60%); */
 	height: 100px;
-	width: 200px;
+	min-height: 100px;
+	width: 12.5vw;
+	max-width: 15vw;
+	min-width: 60px;
 }
 
-.meter-text {
+span.meter-text {
 	position: relative;
-	margin-left: 12.5%;
-	font-size: 1.3rem;
+	left: 1.25vw;
+	font-size: 1.1vw;
 	font-weight: bold;
 	bottom: 52%;
+	max-width: 10px;
 }
 
 button.btn.mail-folder-list-btn:first-child {
@@ -35,29 +38,33 @@ button.btn.mail-folder-list-btn:first-child {
 
 .mail-folder-list-compose-btn {
 	color: rgb(52, 53, 52);
-	font-size: 2rem;
+	font-size: 1.3vw;
 	font-weight: 500;
 	background-color: rgba(250, 235, 235, 0.692);
-	width: 230px;
+	width: 200px;
 	height: 60px;
-	margin-left: 45%;
+	min-height: 60px;
+	margin-left: 5%;
 	border-radius: 2em;
 	padding-inline-end: 10px;
-	transform: translateX(-50%);
 	cursor: pointer;
 	border: none;
+	max-width: 15vw;
+	min-width: 60px;
 }
 
 span.mail-folder-list-fa {
 	margin-left: 10%;
 	color: rgb(87 87 147 / 47%);
-	font-size: 2rem;
+	font-size: 1.5vw;
 	background-color: inherit;
 	padding-inline-start: 10px;
 	height: 60px;
 	border-radius: 15px;
 	padding-top: 10px;
 	cursor: pointer;
+	min-width: 10vw;
+	max-width: 15vw;
 }
 
 span.compose-span {

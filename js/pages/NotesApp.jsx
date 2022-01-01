@@ -25,7 +25,6 @@ export class NotesApp extends React.Component {
 
 	onSetFilter = (filterBy) => {
 		this.setState({filterBy}, this.loadNotes);
-		// console.log('onsetfilter', filterBy)
 	};
 
 	onAddNote = (input, type) => {
@@ -49,12 +48,12 @@ export class NotesApp extends React.Component {
 	onEditNote = (note) => {
 		// ev.stopPropagation();
 		// this.setState({ currNoteUpdate: note });
-		console.log(note)
+		console.log(note);
 		// console.log(this.state)
 		// window.location.replace("/index.html#/keep/update");
 		// this.setState({noteUpdate : note})
 		// window.location.replace("/index.html#/notes/edit");
-	}
+	};
 
 	onPinnNote = (id) => {
 		noteService.pinnNote(id);
@@ -64,7 +63,7 @@ export class NotesApp extends React.Component {
 	render() {
 		const {notes} = this.state;
 		return (
-			<section className="note-app">
+			<section className='note-app'>
 				<NoteFilter
 					className='note-filter'
 					filterBy={this.state.filterBy}

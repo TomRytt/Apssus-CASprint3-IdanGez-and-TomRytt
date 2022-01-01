@@ -36,12 +36,12 @@ export class MailCompose extends React.Component {
 		mail.sentAt = this.getCurrTime();
 		mailService.addMail(mail);
 		this.props.loadMails();
-		window.location.replace('/index.html#/mail');
+		window.location.replace('#/mail');
 	};
 
 	onDiscardMail = (ev) => {
 		ev.preventDefault();
-		window.location.replace('/index.html#/mail');
+		window.location.replace('#/mail');
 	};
 
 	handleChange = (event) => {

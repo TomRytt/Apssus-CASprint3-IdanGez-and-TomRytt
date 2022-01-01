@@ -32,3 +32,51 @@
 	cursor: pointer;
 	border-bottom: 1px solid whitesmoke;
 }
+
+/* Breakpoints */
+
+/* Mobile Only- Hamburger */
+@media (max-width: 800px) {
+	header {
+		height: 8vh;
+	}
+	.main-header img {
+		padding-top: 2vh;
+		align-self: flex-start;
+	}
+	.nav-items {
+		z-index: 1;
+		position: absolute;
+		flex-direction: column;
+		align-items: center;
+		background-color: cornflowerblue;
+		top: 6vh;
+		right: 0;
+		width: 100%;
+		transform: translateX(-100%);
+	}
+	body.menu-open .nav-items {
+		box-shadow: 0px 0px 30px rgb(0 0 0 / 30%);
+		transform: translateX(0%);
+	}
+	.btn-menu {
+		width: 30px;
+		height: 30px;
+		margin-top: 1.3vh;
+		margin-right: 20px;
+	}
+	.app-nav a {
+		display: flex;
+		border-bottom: 1px solid #e1e0e0;
+		padding: 6px 5px;
+		width: 100%;
+		height: 25%;
+		align-self: center;
+		transition: background-color 0.3s;
+		font-size: 20px;
+	}
+	.app-nav a :hover {
+		background-color: rgba(238, 238, 238, 0.356);
+		box-shadow: none;
+	}
+}
