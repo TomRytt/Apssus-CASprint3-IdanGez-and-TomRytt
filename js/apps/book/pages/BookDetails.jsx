@@ -1,5 +1,5 @@
 import {LongText} from '../cmps/LongText.jsx';
-import {utilService} from '../services/util.service.js';
+import {utilService} from '../../../services/util.service.js';
 import {bookService} from '../services/bookService.js';
 import {ReviewAdd} from '../cmps/ReviewAdd.jsx';
 
@@ -118,12 +118,12 @@ export class BookDetails extends React.Component {
 				<ReviewAdd book={book} loadBook={this.loadBook} />
 				<Link
 					className='primary-btn clean-link'
-					to={`/book/${bookService.getNextBookId(book.id)}`}>
+					to={`/books/${bookService.getNextBookId(book.id)}`}>
 					Next Book
 				</Link>
 				<Link
 					className='primary-btn clean-link'
-					to={`/book/${bookService.getPrevBookId(book.id)}`}>
+					to={`/books/${bookService.getPrevBookId(book.id)}`}>
 					Previous Book
 				</Link>
 			</article>
