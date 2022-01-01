@@ -26,33 +26,35 @@ export function MailPreview({
 						<span className='mail-sentat'>{mail.sentAt}</span>
 					</div>
 					<span className='mail-hover-actions'>
-						<button
+						<i
 							className={
 								mail.isRead ? 'far fa-envelope' : 'far fa-envelope-open'
 							}
-							onClick={() => toggleRead(mail.id)}></button>
-						<button
+							onClick={() => toggleRead(mail.id)}></i>
+						<i
 							className='fas fa-trash'
-							onClick={() => onDeleteMail(mail.id)}></button>
+							onClick={() => onDeleteMail(mail.id)}></i>
 					</span>
 				</header>
 			) : (
-				<article className='mail-body' onClick={() => openMail(mail.id)}>
+				<main className='mail-body' onClick={() => openMail(mail.id)}>
 					<h2>{mail.subject}</h2>
-					<span className='mail-hover-actions'>
-						<button
+					<span className='mail-actions'>
+						<i
 							className='fas fa-trash'
-							onClick={() => onDeleteMail(mail.id)}></button>
+							onClick={() => onDeleteMail(mail.id)}></i>
 						<Link className={'clean-link'} to={`/mail/${mail.id}`}>
-							<button className='fas fa-expand'></button>
+							<i className='fas fa-expand'></i>
 						</Link>
 					</span>
-					<p>
-						<b>{mail.by} </b>
+					<p className='mail-body-details'>
+						<span>{mail.sentAt} </span>
+						<b> {mail.by} </b>
 						<span> {`<${mail.from}>`}</span>
 					</p>
+
 					<p>{mail.body}</p>
-				</article>
+				</main>
 			)}
 		</article>
 	);
@@ -60,7 +62,6 @@ export function MailPreview({
 
 // To do:
 // 1. add the trash and expand symbols
-// 2. add click to expand and an expand button (when expanded) that leads to a nested route to the details page
 // 3. add styling
 // 4. add a time/date at the top right of each mail
 // 5. add staring a mail

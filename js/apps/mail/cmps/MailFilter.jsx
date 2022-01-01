@@ -33,6 +33,7 @@ export class MailFilter extends React.Component {
 		const {searchVal, read} = this.state;
 		return (
 			<div className='mail-filter-container'>
+				<h1>Mister Mail</h1>
 				<form className='mail-filter'>
 					<label htmlFor='searchVal'></label>
 					<input

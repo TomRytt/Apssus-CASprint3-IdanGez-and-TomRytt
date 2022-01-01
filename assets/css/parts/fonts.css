@@ -1,4 +1,6 @@
-/* @import url(); */
+/* @import url();
+
+
 
 @font-face {
 	font-family: far;
@@ -25,4 +27,13 @@
 
 .far {
 	font-family: 'far';
+} */
+
+@font-face {
+	font-family: montserrat;
+	src: url('../../fonts/Montserrat-Regular.ttf');
+}
+
+.montserrat {
+	font-family: 'montserrat';
 }
