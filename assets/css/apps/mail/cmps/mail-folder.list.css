@@ -2,8 +2,8 @@
 	margin-top: 10px;
 	display: flex;
 	flex-direction: column;
-	height: 70vh;
-	width: 12.5vw;
+	height: 50vh;
+	width: 10vw;
 	justify-content: space-between;
 }
 
@@ -18,15 +18,15 @@ meter.unread-meter {
 	margin-left: 5%;
 	height: 100px;
 	min-height: 100px;
-	width: 12.5vw;
-	max-width: 15vw;
+	width: 8vw;
+	max-width: 10vw;
 	min-width: 60px;
 }
 
 span.meter-text {
 	position: relative;
 	left: 1.25vw;
-	font-size: 1.1vw;
+	font-size: 0.8vw;
 	font-weight: bold;
 	bottom: 52%;
 	max-width: 10px;
@@ -38,12 +38,12 @@ button.btn.mail-folder-list-btn:first-child {
 
 .mail-folder-list-compose-btn {
 	color: rgb(52, 53, 52);
-	font-size: 1.3vw;
+	font-size: 1vw;
 	font-weight: 500;
 	background-color: rgba(250, 235, 235, 0.692);
-	width: 200px;
-	height: 60px;
-	min-height: 60px;
+	width: 150px;
+	height: 50px;
+	min-height: 50px;
 	margin-left: 5%;
 	border-radius: 2em;
 	padding-inline-end: 10px;
@@ -53,13 +53,17 @@ button.btn.mail-folder-list-btn:first-child {
 	min-width: 60px;
 }
 
-span.mail-folder-list-fa {
+span.compose-span {
+	font-weight: 600;
+}
+
+.mail-folder-list-text-span {
 	margin-left: 10%;
 	color: rgb(87 87 147 / 47%);
-	font-size: 1.5vw;
+	font-size: 1vw;
 	background-color: inherit;
 	padding-inline-start: 10px;
-	height: 60px;
+	height: 50px;
 	border-radius: 15px;
 	padding-top: 10px;
 	cursor: pointer;
@@ -67,15 +71,7 @@ span.mail-folder-list-fa {
 	max-width: 15vw;
 }
 
-span.compose-span {
-	font-weight: 600;
-}
-
-.mail-folder-list-text-span {
-	margin-inline-start: 20px;
-}
-
-span.mail-folder-list-fa:hover {
+.mail-folder-list-text-span:hover {
 	box-shadow: 0px 0px 0px 2px #a0a0a0, inset 0px 10px 27px -8px #141414,
 		inset 0px -10px 27px -8px #9d9e90, 30px 5px 40px 5px rgba(0, 0, 0, 0);
 	opacity: 0.9;

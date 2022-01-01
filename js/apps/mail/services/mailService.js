@@ -387,7 +387,7 @@ function _getFilteredMails(mails, filterBy) {
 		if (status) return mail.status === status;
 		else if (isStarred === 'true') return mail.isStarred;
 		else if (mail.status !== 'trash') {
-			if (isRead === 'all') {
+			if (isRead === 'all' && mail.status !== 'sent') {
 				return (
 					(mails &&
 						mail.subject.toLowerCase().includes(searchVal.toLowerCase())) ||
