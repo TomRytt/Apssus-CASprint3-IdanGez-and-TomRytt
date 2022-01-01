@@ -15,10 +15,10 @@ meter.unread-meter {
 	text-align: center;
 	position: relative;
 	content: attr(value);
-	margin-left: 50%;
-	transform: translateX(-60%);
+	margin-left: 5%;
+	/* transform: translateX(-60%); */
 	height: 100px;
-	width: 75%;
+	width: 200px;
 }
 
 .meter-text {
@@ -27,12 +27,6 @@ meter.unread-meter {
 	font-size: 1.3rem;
 	font-weight: bold;
 	bottom: 52%;
-}
-
-.mail-folder-list-fa {
-	width: 50%;
-	margin-left: 50%;
-	transform: translateX(-50%);
 }
 
 button.btn.mail-folder-list-btn:first-child {
@@ -61,7 +55,7 @@ span.mail-folder-list-fa {
 	padding-inline-start: 10px;
 	height: 60px;
 	border-radius: 15px;
-	width: 250px;
+	/* width: 250px; */
 	padding-top: 10px;
 	cursor: pointer;
 }

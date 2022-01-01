@@ -21,6 +21,7 @@
 	margin-left: 20px;
 	color: inherit;
 	border-left: 1px solid whitesmoke;
+	height: 10vh;
 }
 
 .app-nav a:last-child {
