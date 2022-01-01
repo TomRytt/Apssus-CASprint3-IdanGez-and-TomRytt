@@ -10,21 +10,21 @@ class _AppHeader extends React.Component {
 						<NavLink activeClassName='my-active' to='/mail'>
 							<img
 								className='mail-app-icon'
-								src='../../assets/imgs/main/email.png'
+								src='assets/imgs/main/email.png'
 								alt=''
 							/>
 						</NavLink>
 						<NavLink activeClassName='my-active' to='/notes'>
 							<img
 								className='note-app-icon'
-								src='../../assets/imgs/main/notes.png'
+								src='assets/imgs/main/notes.png'
 								alt=''
 							/>
 						</NavLink>
 						<NavLink activeClassName='my-active' to='/books'>
 							<img
 								className='bookshop-icon'
-								src='../../assets/imgs/main/book.png'
+								src='assets/imgs/main/book.png'
 								alt=''
 							/>
 						</NavLink>
