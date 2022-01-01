@@ -37,7 +37,7 @@ export class MailFilter extends React.Component {
 				<form className='mail-filter'>
 					<label htmlFor='searchVal'></label>
 					<input
-						placeholder='Enter title'
+						placeholder='Search mail'
 						type='text'
 						id='searchVal'
 						name='searchVal'

@@ -3,5 +3,6 @@
 	flex-wrap: wrap;
 	height: 92vh;
 	width: 100vw;
-	background-color: #cddeff;
+	max-height: 92vh;
+	margin-bottom: 50px;
 }

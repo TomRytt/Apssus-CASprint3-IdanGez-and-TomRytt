@@ -10,10 +10,10 @@ export class LongText extends React.Component {
 
 	showText = () => {
 		var fullText = this.props.text;
-		if (fullText.length < 100) {
+		if (fullText.length < 50) {
 			this.setState({text: fullText});
 		} else {
-			this.setState({text: fullText.slice(0, 100)});
+			this.setState({text: fullText.slice(0, 50)});
 		}
 	};
 

@@ -1,5 +1,6 @@
 .mail-preview {
-	width: 80vw;
+	margin-left: 50px;
+	width: 75vw;
 	border: 1px solid rgb(151, 151, 151);
 	display: flex;
 	background-color: #eef2ff34;

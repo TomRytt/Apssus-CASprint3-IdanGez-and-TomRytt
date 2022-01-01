@@ -27,7 +27,7 @@ export class MailCompose extends React.Component {
 		let minutes = currTime.getMinutes();
 		if (minutes < 10) minutes = '0' + minutes;
 		if (hours < 10) hours = '0' + hours;
-		return `Sent at:    ${month} ${day} ${hours}:${minutes} `;
+		return `Sent:    ${month} ${day} At:     ${hours}:${minutes} `;
 	};
 
 	onSendMail = (ev) => {
@@ -36,12 +36,12 @@ export class MailCompose extends React.Component {
 		mail.sentAt = this.getCurrTime();
 		mailService.addMail(mail);
 		this.props.loadMails();
-		window.location.replace('/index.html#/mail');
+		window.location.replace('#/mail');
 	};
 
 	onDiscardMail = (ev) => {
 		ev.preventDefault();
-		window.location.replace('/index.html#/mail');
+		window.location.replace('#/mail');
 	};
 
 	handleChange = (event) => {
@@ -86,11 +86,9 @@ export class MailCompose extends React.Component {
 								className='btn btn-primary send-mail-btn'>
 								Send
 							</button>
-							<button
-								className='btn trash-btn delete-composed-btn'
-								onClick={this.onDiscardMail}>
-								Delete
-							</button>
+							<i
+								className='btn fas fa-trash btn delete-composed-btn'
+								onClick={this.onDiscardMail}></i>
 						</div>
 					</form>
 				</div>
