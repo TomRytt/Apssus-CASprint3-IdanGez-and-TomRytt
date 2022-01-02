@@ -48,15 +48,18 @@
 }
 
 @media (max-width: 768px) {
+	.app-header .header-container {
+		padding-left: 10px;
+	}
 	.app-header img {
 		height: 30px;
-		width: fit-content;
+		width: 30px;
 	}
 	.app-nav a {
-		margin-left: 10px;
+		margin-left: 5px;
 	}
 	.app-nav a:last-child {
-		margin-right: 50px;
+		margin-right: 25px;
 	}
 	.header-container {
 		height: 8vh;

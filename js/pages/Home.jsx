@@ -21,7 +21,7 @@ export class Home extends React.Component {
 						<NavLink activeClassName='my-active' to='/mail'>
 							<img
 								className='mail-app-icon'
-								src='/assets/imgs/main/email.png'
+								src='assets/imgs/main/email.png'
 								alt=''
 							/>
 						</NavLink>
@@ -32,7 +32,7 @@ export class Home extends React.Component {
 						<NavLink activeClassName='my-active' to='/notes'>
 							<img
 								className='note-app-icon'
-								src='/assets/imgs/main/notes.png'
+								src='assets/imgs/main/notes.png'
 								alt=''
 							/>
 						</NavLink>
@@ -42,7 +42,7 @@ export class Home extends React.Component {
 						<NavLink activeClassName='my-active' to='/books'>
 							<img
 								className='bookshop-icon'
-								src='/assets/imgs/main/book.png'
+								src='assets/imgs/main/book.png'
 								alt=''
 							/>
 						</NavLink>
@@ -51,7 +51,7 @@ export class Home extends React.Component {
 				<div className='about flex'>
 					<section className='about-myinfo idan'>
 						<div className='my-info'>
-							<img src='/assets/imgs/main/1.jpg' alt='' />
+							<img src='assets/imgs/main/1.jpg' alt='' />
 							<h4>Idan Gez</h4>
 							<p>
 								Coding Academy <br />

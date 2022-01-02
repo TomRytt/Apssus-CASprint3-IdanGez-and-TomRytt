@@ -139,6 +139,7 @@ i {
 
 @media (max-width: 768px) {
 	.mail-preview {
+		font-size: 13px;
 		min-height: 10vh;
 		padding: 0;
 		margin-left: 10px;
@@ -146,6 +147,7 @@ i {
 	}
 	span.star {
 		min-height: 10vh;
+		font-size: 25px;
 	}
 	.mail-preview header {
 		min-height: 10vh;
