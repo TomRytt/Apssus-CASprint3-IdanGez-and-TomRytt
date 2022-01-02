@@ -17,7 +17,7 @@ export class Home extends React.Component {
 				<br />
 				<section className='apps-details'>
 					<div className='app-details-mail'>
-						Take a look at our new and unique Mail-App{' '}
+						Take a look at our new and unique Mail-App
 						<NavLink activeClassName='my-active' to='/mail'>
 							<img
 								className='mail-app-icon'
@@ -27,8 +27,8 @@ export class Home extends React.Component {
 						</NavLink>
 					</div>
 					<div className='app-details-notes'>
-						{' '}
-						Try out the Keep-App - noting managing like no other{' '}
+						Try out the Keep-App
+						<br></br> noting managing like no other
 						<NavLink activeClassName='my-active' to='/notes'>
 							<img
 								className='note-app-icon'
@@ -38,7 +38,7 @@ export class Home extends React.Component {
 						</NavLink>
 					</div>
 					<div className='app-details-books'>
-						Do you like books? everybody does! come on and check our book shop!{' '}
+						Do you like books? everybody does! come on and check our book shop!
 						<NavLink activeClassName='my-active' to='/books'>
 							<img
 								className='bookshop-icon'
