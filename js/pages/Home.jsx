@@ -3,7 +3,7 @@ const {NavLink, withRouter} = ReactRouterDOM;
 export class Home extends React.Component {
 	render() {
 		return (
-			<div>
+			<div className='home-container'>
 				<div className='welcome'>Welcome to Appssus! </div>
 				<br />
 				<br />

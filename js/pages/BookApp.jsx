@@ -3,7 +3,7 @@ import {bookService} from '../apps/book/services/bookService.js';
 import {eventBusService} from '../services/eventBusService.js';
 
 // Cmps
-import {BookList} from '../apps/book/cmps/bookList.jsx';
+import {BookList} from '../apps/book/cmps/BookList.jsx';
 import {BookFilter} from '../apps/book/cmps/BookFilter.jsx';
 import {AddBook} from '../apps/book/cmps/AddBook.jsx';
 
