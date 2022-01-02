@@ -1,33 +1,33 @@
-.notes-filter-container{
-    height: 90px;
-    width: 100%;
-    background-color: #CDDEFF;
-    display: flex;
-    justify-content: center;
+.notes-filter-container {
+	height: 90px;
+	width: 100%;
+	background-color: #cddeff;
+	display: flex;
+	justify-content: center;
 }
 
 .note-filter-form {
-    display: flex;
-    font-size: 20px;
-    align-items: center;
-    width: 40%;
-    justify-content: space-around;
-    gap: 15px;
+	display: flex;
+	font-size: 20px;
+	align-items: center;
+	width: 40%;
+	justify-content: space-around;
+	gap: 15px;
 }
 
 .note-filter-input {
-    width: 250px;
-    height: 40px;
-    font-size: 20px;
-    border: none;
-    border-radius: 5px;
-    background-color: #EEF2FF;
+	width: 250px;
+	height: 40px;
+	font-size: 20px;
+	border: none;
+	border-radius: 5px;
+	background-color: #eef2ff;
 }
 
 .note-filter-select {
-    width: 150px;
-    height: 40px;
-    border: none;
-    border-radius: 5px;
-    font-size: 20px;
+	width: 150px;
+	height: 40px;
+	border: none;
+	border-radius: 5px;
+	font-size: 20px;
 }
