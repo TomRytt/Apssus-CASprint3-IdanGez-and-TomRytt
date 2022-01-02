@@ -27,8 +27,7 @@ export class Home extends React.Component {
 						</NavLink>
 					</div>
 					<div className='app-details-notes'>
-						Try out the Keep-App
-						<br></br> noting managing like no other
+						Try out the Keep-App noting managing like no other
 						<NavLink activeClassName='my-active' to='/notes'>
 							<img
 								className='note-app-icon'
